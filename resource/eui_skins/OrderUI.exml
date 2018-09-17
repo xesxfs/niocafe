@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="OrderUISkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" >
+	<w:Config id="165e6a218a5" ></w:Config>
+	<e:Group>
+		<e:Image source="game_top_png" scaleX="1" scaleY="1"/>
+		<ns1:FoodOrder id="order1" x="26.68" y="10"/>
+		<ns1:FoodOrder id="order2" x="168" y="10"/>
+		<ns1:FoodOrder id="order3" x="309" y="10"/>
+		<ns1:FoodOrder id="order4" x="450" y="10"/>
+	</e:Group>
+</e:Skin>

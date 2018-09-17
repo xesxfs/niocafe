@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="BigMachineSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" >
+	<w:Config id="165d21243d5" ></w:Config>
+	<e:Group>
+		<e:Image source="big_cafe_png" scaleX="1" scaleY="1"/>
+		<e:Group id="operationGroup" width="126" height="187" x="228" y="60" anchorOffsetX="0" anchorOffsetY="0">
+			<e:Image id="notImg" source="icon66_noinput_png" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"/>
+			<e:Image id="inputImg" source="icon_input_png" scaleX="1" scaleY="1" verticalCenter="0" horizontalCenter="0"/>
+			<e:Image id="delImg" source="icon_del_png" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"/>
+			<e:Image id="packageImg" source="icon_cafe_input_png" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"/>
+		</e:Group>
+		<ns1:BigCup id="cup" x="225" y="381"/>
+		<e:Image id="leftwhater" source="cafe_whatering_png" x="259" y="321" height="198"/>
+		<e:Image id="rightwhater" source="cafe_whatering_png" x="315" y="321" height="198"/>
+		<e:Group width="65" height="123" x="256" y="390" anchorOffsetX="0" anchorOffsetY="0">
+			<e:Image id="fd2" source="" x="4" y="43" anchorOffsetX="0" width="47" anchorOffsetY="0" height="43"/>
+			<e:Image id="fd1" x="14" y="53" anchorOffsetX="0" width="47" anchorOffsetY="0" height="43" source=""/>
+			<e:layout>
+				<e:VerticalLayout horizontalAlign="center" verticalAlign="middle" paddingBottom="5"/>
+			</e:layout>
+		</e:Group>
+	</e:Group>
+</e:Skin>

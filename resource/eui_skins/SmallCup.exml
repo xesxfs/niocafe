@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="SmallCupSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="165d2401153" ></w:Config>
+	<e:Group anchorOffsetX="0" anchorOffsetY="0" width="83" height="116">
+		<e:Group id="scup" x="0" bottom="0">
+		<e:Image id="sfull" source="small_cup_complete0_png" scaleX="1" scaleY="1" bottom="0" visible="false"/>
+		<e:Image id="smask" source="small_cup_geting_png" scaleX="1" scaleY="1" anchorOffsetY="0" bottom="0" horizontalCenter="0" width="75" height="90"/>
+		<e:Image id="scuping" source="small_cup_geting_png" scaleX="1" scaleY="1" x="0" bottom="-4"/>
+		<e:Image id="scupingmk" source="small_cup_geting_png" scaleX="1" scaleY="1" x="0" anchorOffsetX="0" bottom="-4"/>
+		<e:Image id="sfree" source="small_cup_complete1_png" scaleX="1" scaleY="1" x="0" bottom="0" visible="false"/>
+		<e:Rect id="sfullwhater" height="2" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x7C2F2F" mask="scuping" left="0" right="0" top="8"/>
+		<e:Rect id="swhater" fillColor="0x3C0000" mask="smask" height="2" anchorOffsetX="0" anchorOffsetY="0" left="0" right="0" bottom="0"/>
+		</e:Group>
+		<e:Group id="bcup" y="0" horizontalCenter="0" visible="false">
+		<e:Image id="bfull" source="big_cup_complete0_png" scaleX="1" scaleY="1" horizontalCenter="0" bottom="0" visible="false"/>
+		<e:Image id="bcuping" source="big_cup_geting_png" scaleX="1" scaleY="1" horizontalCenter="0" bottom="-4" visible="false"/>
+		<e:Image id="bcupingmk" scaleX="1" scaleY="1" anchorOffsetY="0" anchorOffsetX="0" source="big_cup_geting_png" horizontalCenter="0" bottom="-4"/>
+		<e:Image id="bfree" source="big_cup_complete1_png" scaleX="1" scaleY="1" horizontalCenter="0" bottom="0" visible="false"/>
+		<e:Image id="bmask" source="big_cup_geting_png" scaleX="1" scaleY="1" bottom="-4" horizontalCenter="0"/>
+		<e:Rect id="bfullwhater" height="1" anchorOffsetX="0" anchorOffsetY="0" fillColor="0x7C2F2F" mask="scuping" left="0" right="0" top="9"/>
+		<e:Rect id="bwhater" fillColor="0x3C0000" mask="smask" height="1" anchorOffsetX="0" anchorOffsetY="0" left="0" right="0" bottom="0"/>
+		</e:Group>
+	</e:Group>
+</e:Skin>
