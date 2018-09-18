@@ -25,6 +25,7 @@ class Result extends BaseUI {
 	private onRetry() {
 		this.parent.addChild(new Game());
 		this.parent.removeChild(this);
+		App.reset();
 	}
 
 	private onShare() {
