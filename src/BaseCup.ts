@@ -139,8 +139,8 @@ class BaseCup extends BaseUI implements eui.UIComponent {
 			return false;
 		}
 		this.foods.push(foodsType);
+		App.useFoods.push(foodsType);
 		if (this.foods.length >= 2) {
-			App.useFoods.push(foodsType);
 			this.setType(CupType.Big);
 			this.setStatus(this.getStatus());
 		}
