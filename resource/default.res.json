@@ -5,7 +5,7 @@
 			"name":"preload"
 		},
 		{
-			"keys":"big_cafe_png,big_cup_complete0_png,big_cup_complete1_png,big_cup_geting_png,bottle_png,bottle_shade_0_png,bottle_shade_1_png,bottle_shade_2_png,bottle_shade_3_png,bottle_shade_4_png,brioche_png,cafe_whater_png,cafe_whatering_png,chestnut_png,fragrans_png,game_bg01_png,game_bg2_png,game_cafeing_bg_png,game_cd_png,game_order_bg_png,game_top_png,game_txt_png,icon_cafe_input_png,icon_del_png,icon_input_png,icon9_02_png,icon66_noinput_png,left_btn_png,loading_logo_png,logo_png,logo_txt_png,nut_png,result_bg1_png,result_retry_btn_png,result_share_btn_png,result_top_png,right_btn_png,smal_cafe_png,small_cup_complete0_png,small_cup_complete1_png,small_cup_geting_png,sugar_png,bg_png,cafe_bg_png",
+			"keys":"big_cafe_png,big_cup_complete0_png,big_cup_complete1_png,big_cup_geting_png,bottle_png,bottle_shade_0_png,bottle_shade_1_png,bottle_shade_2_png,bottle_shade_3_png,bottle_shade_4_png,brioche_png,cafe_whater_png,cafe_whatering_png,chestnut_png,fragrans_png,game_bg01_png,game_bg2_png,game_cafeing_bg_png,game_cd_png,game_order_bg_png,game_top_png,game_txt_png,icon_cafe_input_png,icon_del_png,icon_input_png,icon9_02_png,icon66_noinput_png,left_btn_png,loading_logo_png,logo_png,logo_txt_png,nut_png,result_bg1_png,result_retry_btn_png,result_share_btn_png,result_top_png,right_btn_png,smal_cafe_png,small_cup_complete0_png,small_cup_complete1_png,small_cup_geting_png,sugar_png,bg_png,cafe_bg_png,xxx_png",
 			"name":"game"
 		}
 	],
@@ -354,6 +354,11 @@
 			"name":"cafe_bg_png",
 			"type":"image",
 			"url":"assets/bg/cafe_bg.png"
+		},
+		{
+			"name":"xxx_png",
+			"type":"image",
+			"url":"assets/game/xxx.png"
 		}
 	]
 }

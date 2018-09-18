@@ -111,5 +111,4 @@ class Main extends eui.UILayer {
     protected createGameScene(): void {
         this.addChild(new Game());
     }
-
 }

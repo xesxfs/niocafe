@@ -21,7 +21,6 @@ class Game extends BaseUI {
 
 	private selectCafePage: number = 1;
 
-
 	public sm1: SmallMachine;
 	public sm2: SmallMachine;
 	public sm3: SmallMachine;
@@ -38,7 +37,6 @@ class Game extends BaseUI {
 
 	private machines: Array<Array<BaseMachine>>;
 
-
 	public bt1: Bottle;
 	public bt2: Bottle;
 	public bt3: Bottle;
@@ -47,19 +45,26 @@ class Game extends BaseUI {
 
 	private bottles: Array<Bottle>;
 	public scoreLab: eui.Label;
+	public timeLab: eui.Label;
+	public second: number = 0;
+
+	public cdGroup: eui.Group;
+	public cdGroup0: eui.Group;
+	public cdGroup1: eui.Group;
+
 
 
 
 	protected childrenCreated() {
 		this.leftBtn.addEventListener("touchTap", this.onLeftBtn, this);
 		this.rightBtn.addEventListener("touchTap", this.onRightBtn, this);
-		// this.nulBottle.addEventListener("touchTap", this.onBottle, this);
 		this.orderUI = [this.orderUI1, this.orderUI2];
 		this.machines = [[this.sm1, this.sm2, this.sm3, this.sm4, this.sm5, this.sm6], [this.bigMachine], [this.sm7, this.sm8, this.sm9, this.sm10, this.sm11, this.sm12]];
 		this.bottles = [this.bt1, this.bt2, this.bt3, this.bt4, this.bt5];
 		this.initBottle();
 		this.initMachines();
-		egret.Tween.get(this).wait(3000).call(this.startOrder, this);
+		// egret.Tween.get(this).wait(3000).call(this.startOrder, this);
+		this.beginCD();
 	}
 
 	public initBottle() {
@@ -77,6 +82,12 @@ class Game extends BaseUI {
 				machine.onPackageCafe = this.onPackageCafe.bind(this);
 			}
 		}
+	}
+
+	public beginCD() {
+		egret.Tween.get(this.cdGroup).to({ scaleX: 1, scaleY: 1 }, 1000, egret.Ease.circInOut).call(() => { this.cdGroup.visible = false; });
+		egret.Tween.get(this.cdGroup0).wait(1000).to({ scaleX: 1, scaleY: 1 }, 1000, egret.Ease.circInOut).call(() => { this.cdGroup0.visible = false; });
+		egret.Tween.get(this.cdGroup1).wait(2000).call(this.startOrder, this).to({ scaleX: 1, scaleY: 1 }, 900, egret.Ease.circInOut).call(() => { this.cdGroup1.visible = false; });
 	}
 
 	private onLeftBtn(e: egret.TouchEvent) {
@@ -112,7 +123,6 @@ class Game extends BaseUI {
 	}
 
 	private onBottle(e: egret.TouchEvent) {
-		// this.smallMachine.addFood(this.nulBottle.getFoodType());
 		let selMachine: BaseMachine;
 		let selMachineGroup = this.machines[this.selectCafePage];
 		for (let i = 0; i < selMachineGroup.length; i++) {
@@ -141,14 +151,26 @@ class Game extends BaseUI {
 	}
 
 	public addScore(score: number = 1000) {
-		this.scoreLab.text = parseInt(this.scoreLab.text) + score + '';
+		App.score += score;
+		this.scoreLab.text = App.score.toString();
 	}
 
 	private startOrder() {
-		this.intKet = egret.setInterval(this.createOrder, this, 1000);
+		this.intKet = egret.setInterval(this.timeTick, this, 1000);
 	}
 
-	private createOrder() {
+	private timeTick() {
+		this.createOrder();
+		this.updateTime();
+		this.second++;
+		if (this.second > 120) {
+			this.gameEnd();
+			egret.clearInterval(this.intKet);
+			this.intKet = null;
+		}
+	}
+
+	public createOrder() {
 		for (let i = 0; i < this.orderUI.length; i++) {
 			let orderUI = this.orderUI[i];
 			let order = orderUI.getEmptyOrder();
@@ -157,5 +179,29 @@ class Game extends BaseUI {
 				break;
 			}
 		}
+	}
+
+	public updateTime() {
+		let limeTime = 120 - this.second;
+		let min = ~~(limeTime / 60);
+		let second = limeTime % 60
+		let timeStr = "";
+		if (min < 10) {
+			timeStr += "0" + min;
+		} else {
+			timeStr += "" + min;
+		}
+		if (second < 10) {
+			timeStr += ":" + "0" + second;
+		} else {
+			timeStr += ":" + second;
+		}
+		this.timeLab.text = timeStr;
+	}
+
+	public gameEnd() {
+		egret.Tween.removeAllTweens();
+		this.parent.addChild(new Result());
+		this.parent.removeChild(this);
 	}
 }

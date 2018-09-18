@@ -19,5 +19,20 @@
 				<e:VerticalLayout horizontalAlign="center" verticalAlign="middle" paddingBottom="5"/>
 			</e:layout>
 		</e:Group>
+		<e:Group x="206" y="379.5" anchorOffsetX="0" anchorOffsetY="0" width="159.5" height="146">
+			<e:Image id="sfull" source="small_cup_complete0_png" scaleX="1" scaleY="1" horizontalCenter="2" anchorOffsetX="0" width="138" anchorOffsetY="0" height="125.5" bottom="-3" visible="false"/>
+			<e:Image id="bfull" source="big_cup_complete0_png" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" anchorOffsetY="0" height="147.5" anchorOffsetX="0" width="126.5" visible="false"/>
+			<e:layout>
+			<e:BasicLayout/>
+			</e:layout>
+		</e:Group>
+		<e:Group x="223.5" y="378.5" anchorOffsetX="0" anchorOffsetY="0" width="130" height="146">
+			<e:Image id="sdel" scaleX="1" scaleY="1" bottom="-5" source="small_cup_geting_png" horizontalCenter="0" anchorOffsetX="0" width="130" anchorOffsetY="0" height="126" visible="false"/>
+			<e:Image id="bdel" scaleX="1" scaleY="1" horizontalCenter="0" bottom="-2" source="big_cup_geting_png" width="114" height="146" visible="false"/>
+			<e:Image id="xxx" source="xxx_png" scaleX="1" scaleY="1" verticalCenter="9" horizontalCenter="0" visible="false"/>
+			<e:layout>
+			<e:BasicLayout/>
+			</e:layout>
+		</e:Group>
 	</e:Group>
 </e:Skin>

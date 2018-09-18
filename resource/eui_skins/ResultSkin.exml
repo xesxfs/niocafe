@@ -1,3 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="ResultSkin" width="750" height="1334" xmlns:e="http://ns.egret.com/eui">
+<e:Skin class="ResultSkin" width="750" height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="bg_png"/>
+	<e:Image source="result_top_png" top="0" horizontalCenter="0"/>
+	<e:Image source="result_bg1_png" y="184" horizontalCenter="0"/>
+	<e:Image source="logo_png" y="242" horizontalCenter="0"/>
+	<e:Button id="retryBtn" label="" y="1178" left="160">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="result_retry_btn_png" source.down="result_retry_btn_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Button id="shareBtn" label="" y="1178" right="160">
+		<e:skinName>
+			<e:Skin states="up,down,disabled">
+			<e:Image width="100%" height="100%" source="result_share_btn_png"/>
+			<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0"/>
+			</e:Skin>
+		</e:skinName>
+	</e:Button>
+	<e:Label text="Try again" x="150" y="1277" textColor="0x000000" bold="true"/>
+	<e:Label text="Share" x="509" y="1277" textColor="0x000000" bold="true"/>
+	<e:Label text="成功咖啡" x="126" y="442" textColor="0xffffff"/>
+	<e:Label text="消耗:" x="126" y="512" textColor="0xFFFFFF"/>
+	<e:Label text="栗子" x="203" y="561.99" textColor="0xFFFFFF"/>
+	<e:Label text="挂花" x="203" y="618" textColor="0xFFFFFF"/>
+	<e:Label text="奶油" x="203" y="674" textColor="0xFFFFFF"/>
+	<e:Label text="糖" x="203" y="730" textColor="0xFFFFFF"/>
+	<e:Label text="坚果" x="203" y="785.95" textColor="0xFFFFFF"/>
+	<e:Label id="c" text="*30" x="332.98" y="441.29" textColor="0xFFFFFF"/>
+	<e:Label id="c1" text="*30" x="329.65" y="557.95" textColor="0xFFFFFF"/>
+	<e:Label id="c2" text="*30" x="331" y="609.3" textColor="0xFFFFFF"/>
+	<e:Label id="c3" text="*30" x="332" y="673.29" textColor="0xFFFFFF"/>
+	<e:Label id="c4" text="*30" x="330" y="725.92" textColor="0xFFFFFF"/>
+	<e:Label id="c5" text="*30" x="332" y="781.24" textColor="0xFFFFFF"/>
+	<e:Label text="*30" x="512.3" y="444.64" textColor="0xFFFFFF"/>
+	<e:Label text="*30" x="508.97" y="561.3" textColor="0xFFFFFF"/>
+	<e:Label text="*30" x="510.32" y="612.65" textColor="0xFFFFFF"/>
+	<e:Label text="*30" x="511.32" y="676.64" textColor="0xFFFFFF"/>
+	<e:Label text="*30" x="509.32" y="729.27" textColor="0xFFFFFF"/>
+	<e:Label text="*30" x="511.32" y="784.59" textColor="0xFFFFFF"/>
 </e:Skin>
