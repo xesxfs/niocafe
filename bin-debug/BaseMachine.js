@@ -58,6 +58,7 @@ var BaseMachine = (function (_super) {
     BaseMachine.prototype.startCafe = function () {
         this.changeStatus(MachineStatus.Inputing);
         this.cup.setStatus(CupStatus.Geting);
+        console.log(this.cup.scuping.visible);
         egret.Tween.removeTweens(this.leftwhater);
         egret.Tween.removeTweens(this.rightwhater);
         egret.Tween.get(this.leftwhater).to({ height: this.whaterHeight }, 1000);
@@ -131,7 +132,7 @@ var BaseMachine = (function (_super) {
         egret.Tween.get(img).wait(400).call(function () { img.visible = false; _this.xxx.visible = false; _this.cup.visible = true; });
     };
     return BaseMachine;
-}(BaseUI));
+}(eui.Component));
 __reflect(BaseMachine.prototype, "BaseMachine", ["eui.UIComponent", "egret.DisplayObject"]);
 var MachineStatus;
 (function (MachineStatus) {
@@ -141,4 +142,5 @@ var MachineStatus;
     MachineStatus[MachineStatus["Failed"] = 3] = "Failed";
     MachineStatus[MachineStatus["Package"] = 4] = "Package";
 })(MachineStatus || (MachineStatus = {}));
+window["BaseMachine"] = BaseMachine;
 //# sourceMappingURL=BaseMachine.js.map

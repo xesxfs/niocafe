@@ -64,3 +64,4 @@ class FoodOrder extends BaseUI implements eui.UIComponent {
 	}
 
 }
+window["FoodOrder"] = FoodOrder;

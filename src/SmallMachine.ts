@@ -11,3 +11,4 @@ class SmallMachine extends BaseMachine {
 	}
 
 }
+window["SmallMachine"] = SmallMachine;

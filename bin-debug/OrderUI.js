@@ -75,4 +75,5 @@ var OrderUI = (function (_super) {
     return OrderUI;
 }(eui.Component));
 __reflect(OrderUI.prototype, "OrderUI", ["eui.UIComponent", "egret.DisplayObject"]);
+window["OrderUI"] = OrderUI;
 //# sourceMappingURL=OrderUI.js.map

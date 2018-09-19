@@ -17,7 +17,18 @@ var SmallCup = (function (_super) {
         _super.prototype.childrenCreated.call(this);
         this.init();
     };
+    SmallCup.prototype.setCafeHeight = function () {
+        if (this.cupType == CupType.Small) {
+            this.packageHeight = 75;
+            this.cafeHeight = 90;
+        }
+        else {
+            this.packageHeight = 95;
+            this.cafeHeight = 115;
+        }
+    };
     return SmallCup;
 }(BaseCup));
 __reflect(SmallCup.prototype, "SmallCup");
+window["SmallCup"] = SmallCup;
 //# sourceMappingURL=SmallCup.js.map

@@ -1,4 +1,4 @@
-class BaseCup extends BaseUI implements eui.UIComponent {
+class BaseCup extends eui.Component implements eui.UIComponent {
 	public cupType: CupType = CupType.Small;
 	public cupStatus: CupStatus = CupStatus.Free;
 	public foods: Array<FoodType>;
@@ -9,6 +9,7 @@ class BaseCup extends BaseUI implements eui.UIComponent {
 	public scupingmk: eui.Image;
 	public sfree: eui.Image;
 	public smask: eui.Image;
+	public scuping00: eui.Image;
 
 	public bcup: eui.Group;
 	public bfull: eui.Image;
@@ -26,7 +27,9 @@ class BaseCup extends BaseUI implements eui.UIComponent {
 	public whaters: eui.Rect[];
 	public fwhaters: eui.Rect[];
 
-
+	public cafeTime: number = 5000;
+	public cafeHeight: number = 120;
+	public packageHeight: number = 100;
 	public statusShow: Array<Array<eui.Image>>;
 	public cupMask: Array<Array<eui.Image>>;
 	public constructor() {
@@ -42,11 +45,6 @@ class BaseCup extends BaseUI implements eui.UIComponent {
 	}
 
 	public init() {
-		this.bwhater.mask = this.bmask;
-		this.bfullwhater.mask = this.bcupingmk
-		this.swhater.mask = this.smask;
-		this.sfullwhater.mask = this.scupingmk;
-
 		this.statusShow = [[], []];
 		this.cupMask = [[], []];
 		this.whaters = [this.swhater, this.bwhater];
@@ -54,61 +52,81 @@ class BaseCup extends BaseUI implements eui.UIComponent {
 		this.cupMask[CupType.Small] = [this.scupingmk, this.smask]
 		this.cupMask[CupType.Big] = [this.bcupingmk, this.bmask];
 
-		this.statusShow[CupType.Small] = [this.sfree, this.scuping, this.sfull]
+		this.statusShow[CupType.Small] = [this.sfree, this.scuping00, this.sfull]
 		this.statusShow[CupType.Big] = [this.bfree, this.bcuping, this.bfull];
 		this.setType(this.cupType);
 		this.setStatus(this.cupStatus);
 	}
 
+	public setMask() {
+		this.bwhater.mask = this.bmask;
+		this.bfullwhater.mask = this.bcupingmk;
+		this.swhater.mask = this.smask;
+		this.sfullwhater.mask = this.scupingmk;
+	}
+
 	public startWhater() {
 		egret.Tween.removeTweens(this.whaters[this.cupType]);
-		egret.Tween.get(this.whaters[this.cupType]).to({ height: 120 }, 5000).call(this.startFullWhater, this);
+		egret.Tween.get(this.whaters[this.cupType]).to({ height: this.packageHeight }, this.cafeTime).call(this.onPackage, this)
+			.to({ height: this.cafeHeight }, 1500).call(this.startFullWhater, this);
+	}
+
+	public onPackage() {
+		this.setStatus(CupStatus.Fulling);
+		this.machine.changeStatus(MachineStatus.Package);
 	}
 
 	public startFullWhater() {
-		this.setStatus(CupStatus.Fulling);
-		(this.machine as BigMachine).changeStatus(MachineStatus.Package);
 		egret.Tween.removeTweens(this.fwhaters[this.cupType]);
-		egret.Tween.get(this.fwhaters[this.cupType]).to({ height: 60 }, 2000).call(this.onFaild, this);
+		this.onFaild();
+		egret.Tween.get(this.fwhaters[this.cupType]).to({ height: 60 }, 2000);
 	}
 
 	public stop() {
 		egret.Tween.removeTweens(this.fwhaters[this.cupType]);
 		egret.Tween.removeTweens(this.whaters[this.cupType]);
 		for (let i = 0; i < this.whaters.length; i++) {
-			this.whaters[i].height = 0;
+			this.whaters[i].height = 2;
 		}
 
 		for (let i = 0; i < this.fwhaters.length; i++) {
-			this.fwhaters[i].height = 0;
+			this.fwhaters[i].height = 2;
 		}
 	}
 
 	public onFaild() {
 		this.setStatus(CupStatus.Fulled);
-		(this.machine as BigMachine).changeStatus(MachineStatus.Failed);
+		this.machine.changeStatus(MachineStatus.Failed);
 	}
 
 	public switch2Big() {
+		this.cafeTime = 7000;
 		this.bcup.visible = true;
 		this.scup.visible = false;
 	}
 
 	public switch2Small() {
+		this.cafeTime = 5000;
 		this.bcup.visible = false;
 		this.scup.visible = true;
 	}
 
 	public setStatus(status: CupStatus) {
 		this.cupStatus = status;
+		// console.log("setStatus-:", status);
 		if (status == CupStatus.Fulling || status == CupStatus.Fulled) return;
 		let statusList = this.statusShow[this.cupType]
 		for (let i = 0; i < statusList.length - 1; i++) {
 			statusList[i].visible = false;
 			if (i == status) {
+				// console.log("setStatus:", i);
+				// console.log(statusList[i] == this.scuping, this.scuping.visible);
 				statusList[i].visible = true;
+				// console.log(statusList[i] == this.scuping, this.scuping.visible);
 			}
 		}
+		// console.log(this.scup.visible, this.scuping.visible);
+
 	}
 
 	public getStatus(): CupStatus {
@@ -122,6 +140,12 @@ class BaseCup extends BaseUI implements eui.UIComponent {
 		} else {
 			this.switch2Small();
 		}
+		this.setMask();
+		this.setCafeHeight();
+	}
+
+	public setCafeHeight() {
+
 	}
 
 	public getType(): CupType {
@@ -177,4 +201,5 @@ enum CupStatus {
 	Fulled,
 	Fulling,
 }
+window["BaseCup"] = BaseCup;
 

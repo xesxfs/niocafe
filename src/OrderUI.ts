@@ -72,5 +72,5 @@ class OrderUI extends eui.Component implements eui.UIComponent {
 		}
 		return list;
 	}
-
 }
+window["OrderUI"] = OrderUI;

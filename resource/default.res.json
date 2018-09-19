@@ -1,135 +1,15 @@
 {
 	"groups":[
 		{
-			"keys":"checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,description_json,loading_bg_png,loading_logo_png",
+			"keys":"loading_bg_png,loading_logo_png",
 			"name":"preload"
 		},
 		{
-			"keys":"big_cafe_png,big_cup_complete0_png,big_cup_complete1_png,big_cup_geting_png,bottle_png,bottle_shade_0_png,bottle_shade_1_png,bottle_shade_2_png,bottle_shade_3_png,bottle_shade_4_png,brioche_png,cafe_whater_png,cafe_whatering_png,chestnut_png,fragrans_png,game_bg01_png,game_bg2_png,game_cafeing_bg_png,game_cd_png,game_order_bg_png,game_top_png,game_txt_png,icon_cafe_input_png,icon_del_png,icon_input_png,icon9_02_png,icon66_noinput_png,left_btn_png,loading_logo_png,logo_png,logo_txt_png,nut_png,result_bg1_png,result_retry_btn_png,result_share_btn_png,result_top_png,right_btn_png,smal_cafe_png,small_cup_complete0_png,small_cup_complete1_png,small_cup_geting_png,sugar_png,bg_png,cafe_bg_png,xxx_png",
+			"keys":"big_cafe_png,big_cup_complete0_png,big_cup_complete1_png,big_cup_geting_png,bottle_png,brioche_png,cafe_whatering_png,chestnut_png,fragrans_png,game_bg01_png,game_bg2_png,game_cafeing_bg_png,game_cd_png,game_order_bg_png,game_top_png,game_txt_png,icon_cafe_input_png,icon_del_png,icon_input_png,icon66_noinput_png,left_btn_png,loading_logo_png,logo_png,logo_txt_png,nut_png,result_retry_btn_png,result_share_btn_png,right_btn_png,smal_cafe_png,small_cup_complete0_png,small_cup_complete1_png,small_cup_geting_png,sugar_png,bg_png,cafe_bg_png,xxx_png,begin_bg_png,result_bg_png",
 			"name":"game"
 		}
 	],
 	"resources":[
-		{
-			"name":"checkbox_select_disabled_png",
-			"type":"image",
-			"url":"assets/CheckBox/checkbox_select_disabled.png"
-		},
-		{
-			"name":"checkbox_select_down_png",
-			"type":"image",
-			"url":"assets/CheckBox/checkbox_select_down.png"
-		},
-		{
-			"name":"checkbox_select_up_png",
-			"type":"image",
-			"url":"assets/CheckBox/checkbox_select_up.png"
-		},
-		{
-			"name":"checkbox_unselect_png",
-			"type":"image",
-			"url":"assets/CheckBox/checkbox_unselect.png"
-		},
-		{
-			"name":"selected_png",
-			"type":"image",
-			"url":"assets/ItemRenderer/selected.png"
-		},
-		{
-			"name":"border_png",
-			"type":"image",
-			"url":"assets/Panel/border.png"
-		},
-		{
-			"name":"header_png",
-			"type":"image",
-			"url":"assets/Panel/header.png"
-		},
-		{
-			"name":"radiobutton_select_disabled_png",
-			"type":"image",
-			"url":"assets/RadioButton/radiobutton_select_disabled.png"
-		},
-		{
-			"name":"radiobutton_select_down_png",
-			"type":"image",
-			"url":"assets/RadioButton/radiobutton_select_down.png"
-		},
-		{
-			"name":"radiobutton_select_up_png",
-			"type":"image",
-			"url":"assets/RadioButton/radiobutton_select_up.png"
-		},
-		{
-			"name":"radiobutton_unselect_png",
-			"type":"image",
-			"url":"assets/RadioButton/radiobutton_unselect.png"
-		},
-		{
-			"name":"roundthumb_png",
-			"type":"image",
-			"url":"assets/ScrollBar/roundthumb.png"
-		},
-		{
-			"name":"thumb_png",
-			"type":"image",
-			"url":"assets/Slider/thumb.png"
-		},
-		{
-			"name":"track_png",
-			"type":"image",
-			"url":"assets/Slider/track.png"
-		},
-		{
-			"name":"tracklight_png",
-			"type":"image",
-			"url":"assets/Slider/tracklight.png"
-		},
-		{
-			"name":"handle_png",
-			"type":"image",
-			"url":"assets/ToggleSwitch/handle.png"
-		},
-		{
-			"name":"off_png",
-			"type":"image",
-			"url":"assets/ToggleSwitch/off.png"
-		},
-		{
-			"name":"on_png",
-			"type":"image",
-			"url":"assets/ToggleSwitch/on.png"
-		},
-		{
-			"name":"button_down_png",
-			"type":"image",
-			"url":"assets/Button/button_down.png"
-		},
-		{
-			"name":"button_up_png",
-			"type":"image",
-			"url":"assets/Button/button_up.png"
-		},
-		{
-			"name":"thumb_pb_png",
-			"type":"image",
-			"url":"assets/ProgressBar/thumb_pb.png"
-		},
-		{
-			"name":"track_pb_png",
-			"type":"image",
-			"url":"assets/ProgressBar/track_pb.png"
-		},
-		{
-			"name":"track_sb_png",
-			"type":"image",
-			"url":"assets/ScrollBar/track_sb.png"
-		},
-		{
-			"name":"description_json",
-			"type":"json",
-			"url":"config/description.json"
-		},
 		{
 			"name":"loading_bg_png",
 			"type":"image",
@@ -166,39 +46,9 @@
 			"url":"assets/game/bottle.png"
 		},
 		{
-			"name":"bottle_shade_0_png",
-			"type":"image",
-			"url":"assets/game/bottle_shade_0.png"
-		},
-		{
-			"name":"bottle_shade_1_png",
-			"type":"image",
-			"url":"assets/game/bottle_shade_1.png"
-		},
-		{
-			"name":"bottle_shade_2_png",
-			"type":"image",
-			"url":"assets/game/bottle_shade_2.png"
-		},
-		{
-			"name":"bottle_shade_3_png",
-			"type":"image",
-			"url":"assets/game/bottle_shade_3.png"
-		},
-		{
-			"name":"bottle_shade_4_png",
-			"type":"image",
-			"url":"assets/game/bottle_shade_4.png"
-		},
-		{
 			"name":"brioche_png",
 			"type":"image",
 			"url":"assets/game/brioche.png"
-		},
-		{
-			"name":"cafe_whater_png",
-			"type":"image",
-			"url":"assets/game/cafe_whater.png"
 		},
 		{
 			"name":"cafe_whatering_png",
@@ -266,11 +116,6 @@
 			"url":"assets/game/icon_input.png"
 		},
 		{
-			"name":"icon9_02_png",
-			"type":"image",
-			"url":"assets/game/icon9_02.png"
-		},
-		{
 			"name":"icon66_noinput_png",
 			"type":"image",
 			"url":"assets/game/icon66_noinput.png"
@@ -296,11 +141,6 @@
 			"url":"assets/game/nut.png"
 		},
 		{
-			"name":"result_bg1_png",
-			"type":"image",
-			"url":"assets/game/result_bg1.png"
-		},
-		{
 			"name":"result_retry_btn_png",
 			"type":"image",
 			"url":"assets/game/result_retry_btn.png"
@@ -309,11 +149,6 @@
 			"name":"result_share_btn_png",
 			"type":"image",
 			"url":"assets/game/result_share_btn.png"
-		},
-		{
-			"name":"result_top_png",
-			"type":"image",
-			"url":"assets/game/result_top.png"
 		},
 		{
 			"name":"right_btn_png",
@@ -359,6 +194,16 @@
 			"name":"xxx_png",
 			"type":"image",
 			"url":"assets/game/xxx.png"
+		},
+		{
+			"name":"begin_bg_png",
+			"type":"image",
+			"url":"assets/bg/begin_bg.png"
+		},
+		{
+			"name":"result_bg_png",
+			"type":"image",
+			"url":"assets/bg/result_bg.png"
 		}
 	]
 }

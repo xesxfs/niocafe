@@ -10,3 +10,4 @@ class BigMachine extends BaseMachine {
 		this.init();
 	}
 }
+window["BigMachine"] = BigMachine;

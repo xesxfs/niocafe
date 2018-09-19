@@ -23,4 +23,5 @@ var BigMachine = (function (_super) {
     return BigMachine;
 }(BaseMachine));
 __reflect(BigMachine.prototype, "BigMachine");
+window["BigMachine"] = BigMachine;
 //# sourceMappingURL=BigMachine.js.map

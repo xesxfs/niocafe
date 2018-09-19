@@ -9,11 +9,12 @@
 		"libs/modules/promise/promise.js"
 	],
 	"game": [
-		"bin-debug/BaseUI.js",
 		"bin-debug/BaseCup.js",
 		"bin-debug/BaseMachine.js",
+		"bin-debug/BaseUI.js",
 		"bin-debug/Game.js",
 		"bin-debug/App.js",
+		"bin-debug/BeginUI.js",
 		"bin-debug/BigCup.js",
 		"bin-debug/BigMachine.js",
 		"bin-debug/Bottle.js",

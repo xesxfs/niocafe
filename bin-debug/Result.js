@@ -17,14 +17,16 @@ var Result = (function (_super) {
     }
     Result.prototype.childrenCreated = function () {
         this.cs = [this.c1, this.c2, this.c3, this.c4, this.c5];
+        this.ss = [this.s1, this.s2, this.s3, this.s4, this.s5];
         this.retryBtn.addEventListener("touchTap", this.onRetry, this);
         this.shareBtn.addEventListener("touchTap", this.onShare, this);
-        this.c.text = App.score / 1000 + '';
+        this.c.text = App.score / 100 + '';
         this.calc();
     };
     Result.prototype.onRetry = function () {
         this.parent.addChild(new Game());
         this.parent.removeChild(this);
+        App.reset();
     };
     Result.prototype.onShare = function () {
     };
@@ -34,9 +36,21 @@ var Result = (function (_super) {
         for (var i = 0; i < list.length; i++) {
             calcFods[list[i]]++;
         }
+        var subFoodScore = 10;
+        var subScore = 0;
         for (var i = 0; i < calcFods.length; i++) {
-            this.cs[i].text = calcFods[i].toString();
+            this.cs[i].text = "*" + calcFods[i].toString();
+            if (i == FoodType.Sugar || i == FoodType.Fragrans) {
+                subFoodScore = 10;
+            }
+            else {
+                subFoodScore = 15;
+            }
+            subScore += calcFods[i] * subFoodScore;
+            this.ss[i].text = "-" + calcFods[i] * subFoodScore;
         }
+        this.s.text = App.score.toString();
+        this.totallLab.text = App.score - subScore + "";
     };
     return Result;
 }(BaseUI));

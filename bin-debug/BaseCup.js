@@ -14,6 +14,9 @@ var BaseCup = (function (_super) {
         var _this = _super.call(this) || this;
         _this.cupType = CupType.Small;
         _this.cupStatus = CupStatus.Free;
+        _this.cafeTime = 5000;
+        _this.cafeHeight = 120;
+        _this.packageHeight = 100;
         _this.foods = [];
         return _this;
     }
@@ -24,39 +27,45 @@ var BaseCup = (function (_super) {
         return this.foods.length;
     };
     BaseCup.prototype.init = function () {
-        this.bwhater.mask = this.bmask;
-        this.bfullwhater.mask = this.bcupingmk;
-        this.swhater.mask = this.smask;
-        this.sfullwhater.mask = this.scupingmk;
         this.statusShow = [[], []];
         this.cupMask = [[], []];
         this.whaters = [this.swhater, this.bwhater];
         this.fwhaters = [this.sfullwhater, this.bfullwhater];
         this.cupMask[CupType.Small] = [this.scupingmk, this.smask];
         this.cupMask[CupType.Big] = [this.bcupingmk, this.bmask];
-        this.statusShow[CupType.Small] = [this.sfree, this.scuping, this.sfull];
+        this.statusShow[CupType.Small] = [this.sfree, this.scuping00, this.sfull];
         this.statusShow[CupType.Big] = [this.bfree, this.bcuping, this.bfull];
         this.setType(this.cupType);
         this.setStatus(this.cupStatus);
     };
+    BaseCup.prototype.setMask = function () {
+        this.bwhater.mask = this.bmask;
+        this.bfullwhater.mask = this.bcupingmk;
+        this.swhater.mask = this.smask;
+        this.sfullwhater.mask = this.scupingmk;
+    };
     BaseCup.prototype.startWhater = function () {
         egret.Tween.removeTweens(this.whaters[this.cupType]);
-        egret.Tween.get(this.whaters[this.cupType]).to({ height: 120 }, 5000).call(this.startFullWhater, this);
+        egret.Tween.get(this.whaters[this.cupType]).to({ height: this.packageHeight }, this.cafeTime).call(this.onPackage, this)
+            .to({ height: this.cafeHeight }, 1500).call(this.startFullWhater, this);
     };
-    BaseCup.prototype.startFullWhater = function () {
+    BaseCup.prototype.onPackage = function () {
         this.setStatus(CupStatus.Fulling);
         this.machine.changeStatus(MachineStatus.Package);
+    };
+    BaseCup.prototype.startFullWhater = function () {
         egret.Tween.removeTweens(this.fwhaters[this.cupType]);
-        egret.Tween.get(this.fwhaters[this.cupType]).to({ height: 60 }, 2000).call(this.onFaild, this);
+        this.onFaild();
+        egret.Tween.get(this.fwhaters[this.cupType]).to({ height: 60 }, 2000);
     };
     BaseCup.prototype.stop = function () {
         egret.Tween.removeTweens(this.fwhaters[this.cupType]);
         egret.Tween.removeTweens(this.whaters[this.cupType]);
         for (var i = 0; i < this.whaters.length; i++) {
-            this.whaters[i].height = 0;
+            this.whaters[i].height = 2;
         }
         for (var i = 0; i < this.fwhaters.length; i++) {
-            this.fwhaters[i].height = 0;
+            this.fwhaters[i].height = 2;
         }
     };
     BaseCup.prototype.onFaild = function () {
@@ -64,24 +73,31 @@ var BaseCup = (function (_super) {
         this.machine.changeStatus(MachineStatus.Failed);
     };
     BaseCup.prototype.switch2Big = function () {
+        this.cafeTime = 7000;
         this.bcup.visible = true;
         this.scup.visible = false;
     };
     BaseCup.prototype.switch2Small = function () {
+        this.cafeTime = 5000;
         this.bcup.visible = false;
         this.scup.visible = true;
     };
     BaseCup.prototype.setStatus = function (status) {
         this.cupStatus = status;
+        // console.log("setStatus-:", status);
         if (status == CupStatus.Fulling || status == CupStatus.Fulled)
             return;
         var statusList = this.statusShow[this.cupType];
         for (var i = 0; i < statusList.length - 1; i++) {
             statusList[i].visible = false;
             if (i == status) {
+                // console.log("setStatus:", i);
+                // console.log(statusList[i] == this.scuping, this.scuping.visible);
                 statusList[i].visible = true;
+                // console.log(statusList[i] == this.scuping, this.scuping.visible);
             }
         }
+        // console.log(this.scup.visible, this.scuping.visible);
     };
     BaseCup.prototype.getStatus = function () {
         return this.cupStatus;
@@ -94,6 +110,10 @@ var BaseCup = (function (_super) {
         else {
             this.switch2Small();
         }
+        this.setMask();
+        this.setCafeHeight();
+    };
+    BaseCup.prototype.setCafeHeight = function () {
     };
     BaseCup.prototype.getType = function () {
         return this.cupType;
@@ -109,8 +129,8 @@ var BaseCup = (function (_super) {
             return false;
         }
         this.foods.push(foodsType);
+        App.useFoods.push(foodsType);
         if (this.foods.length >= 2) {
-            App.useFoods.push(foodsType);
             this.setType(CupType.Big);
             this.setStatus(this.getStatus());
         }
@@ -133,7 +153,7 @@ var BaseCup = (function (_super) {
         this.setType(CupType.Small);
     };
     return BaseCup;
-}(BaseUI));
+}(eui.Component));
 __reflect(BaseCup.prototype, "BaseCup", ["eui.UIComponent", "egret.DisplayObject"]);
 var CupType;
 (function (CupType) {
@@ -147,4 +167,5 @@ var CupStatus;
     CupStatus[CupStatus["Fulled"] = 2] = "Fulled";
     CupStatus[CupStatus["Fulling"] = 3] = "Fulling";
 })(CupStatus || (CupStatus = {}));
+window["BaseCup"] = BaseCup;
 //# sourceMappingURL=BaseCup.js.map

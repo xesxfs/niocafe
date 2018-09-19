@@ -50,4 +50,5 @@ var FoodType;
     FoodType[FoodType["Nut"] = 3] = "Nut";
     FoodType[FoodType["Sugar"] = 4] = "Sugar"; //糖
 })(FoodType || (FoodType = {}));
+window["Bottle"] = Bottle;
 //# sourceMappingURL=Bottle.js.map

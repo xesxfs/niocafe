@@ -1,4 +1,4 @@
-class BaseMachine extends BaseUI implements eui.UIComponent {
+class BaseMachine extends eui.Component implements eui.UIComponent {
 	public constructor() {
 		super();
 	}
@@ -81,7 +81,8 @@ class BaseMachine extends BaseUI implements eui.UIComponent {
 
 	public startCafe() {
 		this.changeStatus(MachineStatus.Inputing);
-		(this.cup as BigCup).setStatus(CupStatus.Geting);
+		this.cup.setStatus(CupStatus.Geting);	
+		console.log(this.cup.scuping.visible);
 		egret.Tween.removeTweens(this.leftwhater);
 		egret.Tween.removeTweens(this.rightwhater);
 		egret.Tween.get(this.leftwhater).to({ height: this.whaterHeight }, 1000);
@@ -167,3 +168,4 @@ enum MachineStatus {
 	Failed,//失败
 	Package, //打包
 }
+window["BaseMachine"] = BaseMachine;

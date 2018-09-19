@@ -11,13 +11,27 @@ r.prototype = e.prototype, t.prototype = new r();
 var BigCup = (function (_super) {
     __extends(BigCup, _super);
     function BigCup() {
-        return _super.call(this) || this;
+        var _this = _super.call(this) || this;
+        _this.cafeTime = 7000;
+        _this.cafeHeight = 146;
+        return _this;
     }
     BigCup.prototype.childrenCreated = function () {
         _super.prototype.childrenCreated.call(this);
         this.init();
     };
+    BigCup.prototype.setCafeHeight = function () {
+        if (this.cupType == CupType.Small) {
+            this.packageHeight = 100;
+            this.cafeHeight = 120;
+        }
+        else {
+            this.packageHeight = 120;
+            this.cafeHeight = 135;
+        }
+    };
     return BigCup;
 }(BaseCup));
 __reflect(BigCup.prototype, "BigCup");
+window["BigCup"] = BigCup;
 //# sourceMappingURL=BigCup.js.map

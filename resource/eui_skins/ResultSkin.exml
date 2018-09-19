@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="ResultSkin" width="750" height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
-	<e:Image source="bg_png"/>
-	<e:Image source="result_top_png" top="0" horizontalCenter="0"/>
-	<e:Image source="result_bg1_png" y="184" horizontalCenter="0"/>
-	<e:Image source="logo_png" y="242" horizontalCenter="0"/>
+	<e:Image source="result_bg_png"/>
 	<e:Button id="retryBtn" label="" y="1178" left="160">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">
@@ -22,23 +19,23 @@
 	</e:Button>
 	<e:Label text="Try again" x="150" y="1277" textColor="0x000000" bold="true"/>
 	<e:Label text="Share" x="509" y="1277" textColor="0x000000" bold="true"/>
-	<e:Label text="成功咖啡" x="126" y="442" textColor="0xffffff"/>
-	<e:Label text="消耗:" x="126" y="512" textColor="0xFFFFFF"/>
-	<e:Label text="栗子" x="203" y="561.99" textColor="0xFFFFFF"/>
-	<e:Label text="挂花" x="203" y="618" textColor="0xFFFFFF"/>
-	<e:Label text="奶油" x="203" y="674" textColor="0xFFFFFF"/>
-	<e:Label text="糖" x="203" y="730" textColor="0xFFFFFF"/>
-	<e:Label text="坚果" x="203" y="785.95" textColor="0xFFFFFF"/>
-	<e:Label id="c" text="*30" x="332.98" y="441.29" textColor="0xFFFFFF"/>
-	<e:Label id="c1" text="*30" x="329.65" y="557.95" textColor="0xFFFFFF"/>
-	<e:Label id="c2" text="*30" x="331" y="609.3" textColor="0xFFFFFF"/>
-	<e:Label id="c3" text="*30" x="332" y="673.29" textColor="0xFFFFFF"/>
-	<e:Label id="c4" text="*30" x="330" y="725.92" textColor="0xFFFFFF"/>
-	<e:Label id="c5" text="*30" x="332" y="781.24" textColor="0xFFFFFF"/>
-	<e:Label text="*30" x="512.3" y="444.64" textColor="0xFFFFFF"/>
-	<e:Label text="*30" x="508.97" y="561.3" textColor="0xFFFFFF"/>
-	<e:Label text="*30" x="510.32" y="612.65" textColor="0xFFFFFF"/>
-	<e:Label text="*30" x="511.32" y="676.64" textColor="0xFFFFFF"/>
-	<e:Label text="*30" x="509.32" y="729.27" textColor="0xFFFFFF"/>
-	<e:Label text="*30" x="511.32" y="784.59" textColor="0xFFFFFF"/>
+	<e:Label text="奶油" x="203" y="518" textColor="0x000000"/>
+	<e:Label text="NO.00002" x="119" y="222" textColor="0x000000" size="20"/>
+	<e:Label text="栗子" x="203" y="557" textColor="0x000000"/>
+	<e:Label text="桂花" x="203" y="597" textColor="0x000000"/>
+	<e:Label text="坚果" x="203" y="636" textColor="0x000000"/>
+	<e:Label text="糖" x="203" y="675.32" textColor="0x000000"/>
+	<e:Label id="c" text="*30" x="353" y="459.95" textColor="0x000000"/>
+	<e:Label id="c1" text="*30" x="353" y="518" textColor="0x000000"/>
+	<e:Label id="c2" text="*30" x="353" y="557" textColor="0x000000"/>
+	<e:Label id="c3" text="*30" x="353" y="596" textColor="0x000000"/>
+	<e:Label id="c4" text="*30" x="353" y="635" textColor="0x000000"/>
+	<e:Label id="c5" text="*30" x="353" y="674.6" textColor="0x000000"/>
+	<e:Label id="s" text="*30" x="540.3" y="457.97" textColor="0x000000"/>
+	<e:Label id="s1" text="*30" x="543.63" y="518" textColor="0x000000"/>
+	<e:Label id="s2" text="*30" x="544.98" y="557" textColor="0x000000"/>
+	<e:Label id="s3" text="*30" x="545.98" y="596" textColor="0x000000"/>
+	<e:Label id="s4" text="*30" x="543.98" y="635" textColor="0x000000"/>
+	<e:Label id="s5" text="*30" x="545.98" y="674.35" textColor="0x000000"/>
+	<e:Label id="totallLab" text="*30" x="547.99" y="794.58" textColor="0x000000"/>
 </e:Skin>

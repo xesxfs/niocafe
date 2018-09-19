@@ -11,7 +11,10 @@ r.prototype = e.prototype, t.prototype = new r();
 var BaseUI = (function (_super) {
     __extends(BaseUI, _super);
     function BaseUI() {
-        return _super.call(this) || this;
+        var _this = _super.call(this) || this;
+        _this.percentWidth = 100;
+        _this.percentHeight = 100;
+        return _this;
     }
     return BaseUI;
 }(eui.Component));

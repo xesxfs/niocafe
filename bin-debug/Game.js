@@ -18,6 +18,10 @@ var Game = (function (_super) {
         return _this;
     }
     Game.prototype.childrenCreated = function () {
+        for (var i = 0; i < 3; i++) {
+            this.midGroup.getChildAt(i).width = this.stage.stageWidth;
+        }
+        this.midGroup.left = -this.stage.stageWidth;
         this.leftBtn.addEventListener("touchTap", this.onLeftBtn, this);
         this.rightBtn.addEventListener("touchTap", this.onRightBtn, this);
         this.orderUI = [this.orderUI1, this.orderUI2];
@@ -47,39 +51,39 @@ var Game = (function (_super) {
         var _this = this;
         egret.Tween.get(this.cdGroup).to({ scaleX: 1, scaleY: 1 }, 1000, egret.Ease.circInOut).call(function () { _this.cdGroup.visible = false; });
         egret.Tween.get(this.cdGroup0).wait(1000).to({ scaleX: 1, scaleY: 1 }, 1000, egret.Ease.circInOut).call(function () { _this.cdGroup0.visible = false; });
-        egret.Tween.get(this.cdGroup1).wait(2000).call(this.startOrder, this).to({ scaleX: 1, scaleY: 1 }, 900, egret.Ease.circInOut).call(function () { _this.cdGroup1.visible = false; });
+        egret.Tween.get(this.cdGroup1).wait(2000).to({ scaleX: 1, scaleY: 1 }, 900, egret.Ease.circInOut).call(function () { _this.cdGroup1.visible = false; _this.midGroup.visible = true; _this.startOrder(); });
     };
     Game.prototype.onLeftBtn = function (e) {
         egret.Tween.removeTweens(this.midGroup);
         var offx;
-        if (this.midGroup.x == 0) {
-            offx = 750;
+        if (this.midGroup.left == -this.stage.stageWidth) {
+            offx = 0;
             this.leftBtn.visible = false;
             this.selectCafePage = 0;
         }
         else {
-            offx = 0;
+            offx = -this.stage.stageWidth;
             this.rightBtn.visible = true;
             this.leftBtn.visible = true;
             this.selectCafePage = 1;
         }
-        egret.Tween.get(this.midGroup).to({ x: offx }, 300);
+        egret.Tween.get(this.midGroup).to({ left: offx }, 300);
     };
     Game.prototype.onRightBtn = function (e) {
         egret.Tween.removeTweens(this.midGroup);
         var offx;
-        if (this.midGroup.x == 0) {
-            offx = -750;
+        if (this.midGroup.left == -this.stage.stageWidth) {
+            offx = -this.stage.stageWidth * 2;
             this.rightBtn.visible = false;
             this.selectCafePage = 2;
         }
         else {
-            offx = 0;
+            offx = -this.stage.stageWidth;
             this.rightBtn.visible = true;
             this.leftBtn.visible = true;
             this.selectCafePage = 1;
         }
-        egret.Tween.get(this.midGroup).to({ x: offx }, 300);
+        egret.Tween.get(this.midGroup).to({ left: offx }, 300);
     };
     Game.prototype.onBottle = function (e) {
         var selMachine;
@@ -108,7 +112,7 @@ var Game = (function (_super) {
         return result;
     };
     Game.prototype.addScore = function (score) {
-        if (score === void 0) { score = 1000; }
+        if (score === void 0) { score = 100; }
         App.score += score;
         this.scoreLab.text = App.score.toString();
     };

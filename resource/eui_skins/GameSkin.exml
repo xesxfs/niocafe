@@ -2,9 +2,10 @@
 <e:Skin class="GameSkin" width="750" height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*">
 	<e:Group left="0" right="0" top="0" bottom="0">
 		<e:Image source="bg_png" left="0" right="0" top="0" bottom="0"/>
-		<e:Group id="midGroup" width="100%" x="0" height="100%" y="0">
-			<e:Group left="-750" top="0" x="-1376" y="-261" scaleX="1" scaleY="1" width="100%" height="100%">
-				<e:Image source="cafe_bg_png" x="0" y="0"/>
+
+		<e:Group id="midGroup" left="0" right="0" top="0" bottom="0" visible="false">
+			<e:Group scaleX="1" scaleY="1" width="750" x="-750" top="0" bottom="0">
+				<e:Image source="cafe_bg_png" left="0" right="0" top="0" bottom="0"/>
 				<e:Group y="156.68" horizontalCenter="0">
 					<ns1:SmallMachine id="sm1" left="0" top="0"/>
 					<ns1:SmallMachine id="sm2" x="260" y="0"/>
@@ -27,28 +28,21 @@
 					</e:layout>
 				</e:Group>
 			</e:Group>
-			<e:Group left="0" right="0" top="0" bottom="0" x="-626" y="-261" scaleX="1" scaleY="1">
-				<e:Image source="logo_txt_png" y="90.33" horizontalCenter="0.5"/>
-				<e:Image source="game_txt_png" y="160.98" horizontalCenter="91.5"/>
-				<ns1:BigMachine id="bigMachine" y="587.33" horizontalCenter="0.5"/>
-				<ns1:OrderUI id="orderUI1" y="227.71" horizontalCenter="0.5"/>
-				<ns1:OrderUI id="orderUI2" y="397.53" horizontalCenter="0.5"/>
-				<e:Group id="cdGroup1" verticalCenter="0" horizontalCenter="0" anchorOffsetX="98" anchorOffsetY="98" scaleX="0.2" scaleY="0.2">
-					<e:Image source="game_cd_png"/>
-					<e:Label text="1" horizontalCenter="0" verticalCenter="0" size="100" bold="true"/>
-				</e:Group>
-				<e:Group id="cdGroup0" verticalCenter="0" horizontalCenter="0" anchorOffsetX="98" anchorOffsetY="98" scaleX="0.2" scaleY="0.2">
-					<e:Image source="game_cd_png"/>
-					<e:Label text="2" horizontalCenter="0" verticalCenter="0" size="100" bold="true"/>
-				</e:Group>
-				<e:Group id="cdGroup" verticalCenter="0" horizontalCenter="0" anchorOffsetX="98" anchorOffsetY="98" scaleX="0.2" scaleY="0.2">
-					<e:Image source="game_cd_png"/>
-					<e:Label text="3" horizontalCenter="0" verticalCenter="0" size="100" bold="true"/>
-				</e:Group>
+			<e:Group scaleX="1" scaleY="1" width="750" x="0" top="0" bottom="210" anchorOffsetY="0" height="1334">
+
+				<e:Image source="logo_txt_png" horizontalCenter="0.5" top="90"/>
+				<e:Image source="game_txt_png" horizontalCenter="91.5" top="161"/>
+				<ns1:BigMachine id="bigMachine" width="571" height="484" horizontalCenter="0.5" top="566"/>
+				<ns1:OrderUI id="orderUI1" horizontalCenter="0" top="228"/>
+				<ns1:OrderUI id="orderUI2" width="607" height="154" horizontalCenter="0" top="398"/>
+
+
+
+
 
 			</e:Group>
-			<e:Group left="750" top="0" x="124" y="-261" scaleX="1" scaleY="1" width="100%" height="100%">
-				<e:Image source="cafe_bg_png" x="0" y="0"/>
+			<e:Group scaleX="1" scaleY="1" width="750" x="750" top="0" bottom="0">
+				<e:Image source="cafe_bg_png" left="0" right="0" top="0" bottom="0"/>
 				<e:Group y="156.68" horizontalCenter="0">
 					<ns1:SmallMachine id="sm7" left="0" top="0"/>
 					<ns1:SmallMachine id="sm8" x="260" y="0"/>
@@ -71,9 +65,12 @@
 					</e:layout>
 				</e:Group>
 			</e:Group>
+			<e:layout>
+				<e:HorizontalLayout/>
+			</e:layout>
 		</e:Group>
-		<e:Group id="bottomGroup" height="200" bottom="10" left="0" right="0">
-			<e:Image source="game_bg01_png" x="0" y="0"/>
+		<e:Group id="bottomGroup" bottom="0" left="0" right="0" height="200">
+			<e:Image source="game_bg01_png" y="0" left="0" right="0"/>
 			<e:Group left="0" right="0" top="0" bottom="0">
 				<ns1:Bottle id="bt1" x="124" y="60" scaleX="1" scaleY="1"/>
 				<ns1:Bottle id="bt2" x="134" y="70" scaleX="1" scaleY="1"/>
@@ -85,6 +82,19 @@
 				</e:layout>
 			</e:Group>
 		</e:Group>
+		<e:Group id="cdGroup1" verticalCenter="0" anchorOffsetX="98" anchorOffsetY="98" scaleX="0.2" scaleY="0.2" x="376">
+			<e:Image source="game_cd_png"/>
+			<e:Label text="1" horizontalCenter="0" verticalCenter="0" size="100" bold="true"/>
+		</e:Group>
+		<e:Group id="cdGroup0" verticalCenter="0" anchorOffsetX="98" anchorOffsetY="98" scaleX="0.2" scaleY="0.2" x="376">
+			<e:Image source="game_cd_png"/>
+			<e:Label text="2" horizontalCenter="0" verticalCenter="0" size="100" bold="true"/>
+		</e:Group>
+		<e:Group id="cdGroup" verticalCenter="0" anchorOffsetX="98" anchorOffsetY="98" scaleX="0.2" scaleY="0.2" x="376">
+			<e:Image source="game_cd_png"/>
+			<e:Label text="3" horizontalCenter="0" verticalCenter="0" size="100" bold="true"/>
+		</e:Group>
+
 		<e:Button id="leftBtn" label="" left="0" verticalCenter="0">
 			<e:skinName>
 			<e:Skin states="up,down,disabled">

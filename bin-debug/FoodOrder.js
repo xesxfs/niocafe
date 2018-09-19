@@ -64,4 +64,5 @@ var FoodOrder = (function (_super) {
     return FoodOrder;
 }(BaseUI));
 __reflect(FoodOrder.prototype, "FoodOrder", ["eui.UIComponent", "egret.DisplayObject"]);
+window["FoodOrder"] = FoodOrder;
 //# sourceMappingURL=FoodOrder.js.map

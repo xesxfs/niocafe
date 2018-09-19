@@ -46,3 +46,4 @@ enum FoodType {
 	Nut,//坚果
 	Sugar//糖
 }
+window["Bottle"] = Bottle;

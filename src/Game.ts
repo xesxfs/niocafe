@@ -56,6 +56,12 @@ class Game extends BaseUI {
 
 
 	protected childrenCreated() {
+
+		for (let i = 0; i < 3; i++) {
+			(this.midGroup.getChildAt(i) as eui.Group).width = this.stage.stageWidth;
+		}
+		this.midGroup.left = -this.stage.stageWidth;
+
 		this.leftBtn.addEventListener("touchTap", this.onLeftBtn, this);
 		this.rightBtn.addEventListener("touchTap", this.onRightBtn, this);
 		this.orderUI = [this.orderUI1, this.orderUI2];
@@ -87,39 +93,39 @@ class Game extends BaseUI {
 	public beginCD() {
 		egret.Tween.get(this.cdGroup).to({ scaleX: 1, scaleY: 1 }, 1000, egret.Ease.circInOut).call(() => { this.cdGroup.visible = false; });
 		egret.Tween.get(this.cdGroup0).wait(1000).to({ scaleX: 1, scaleY: 1 }, 1000, egret.Ease.circInOut).call(() => { this.cdGroup0.visible = false; });
-		egret.Tween.get(this.cdGroup1).wait(2000).call(this.startOrder, this).to({ scaleX: 1, scaleY: 1 }, 900, egret.Ease.circInOut).call(() => { this.cdGroup1.visible = false; });
+		egret.Tween.get(this.cdGroup1).wait(2000).to({ scaleX: 1, scaleY: 1 }, 900, egret.Ease.circInOut).call(() => { this.cdGroup1.visible = false; this.midGroup.visible = true;this.startOrder(); });
 	}
 
 	private onLeftBtn(e: egret.TouchEvent) {
 		egret.Tween.removeTweens(this.midGroup);
 		let offx;
-		if (this.midGroup.x == 0) {
-			offx = 750;
+		if (this.midGroup.left == -this.stage.stageWidth) {
+			offx = 0;
 			this.leftBtn.visible = false;
 			this.selectCafePage = 0;
 		} else {
-			offx = 0;
+			offx = -this.stage.stageWidth;
 			this.rightBtn.visible = true;
 			this.leftBtn.visible = true;
 			this.selectCafePage = 1;
 		}
-		egret.Tween.get(this.midGroup).to({ x: offx }, 300);
+		egret.Tween.get(this.midGroup).to({ left: offx }, 300);
 	}
 
 	private onRightBtn(e: egret.TouchEvent) {
 		egret.Tween.removeTweens(this.midGroup);
 		let offx;
-		if (this.midGroup.x == 0) {
-			offx = -750;
+		if (this.midGroup.left == -this.stage.stageWidth) {
+			offx = -this.stage.stageWidth * 2;
 			this.rightBtn.visible = false;
 			this.selectCafePage = 2;
 		} else {
-			offx = 0;
+			offx = -this.stage.stageWidth;
 			this.rightBtn.visible = true;
 			this.leftBtn.visible = true;
 			this.selectCafePage = 1;
 		}
-		egret.Tween.get(this.midGroup).to({ x: offx }, 300);
+		egret.Tween.get(this.midGroup).to({ left: offx }, 300);
 	}
 
 	private onBottle(e: egret.TouchEvent) {
@@ -150,7 +156,7 @@ class Game extends BaseUI {
 		return result;
 	}
 
-	public addScore(score: number = 1000) {
+	public addScore(score: number = 100) {
 		App.score += score;
 		this.scoreLab.text = App.score.toString();
 	}

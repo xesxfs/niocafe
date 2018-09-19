@@ -74,10 +74,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var Main = (function (_super) {
     __extends(Main, _super);
     function Main() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super.call(this) || this;
+        _this.percentWidth = 100;
+        _this.percentHeight = 100;
+        return _this;
     }
     Main.prototype.createChildren = function () {
         _super.prototype.createChildren.call(this);
+        this.percentWidth = 100;
+        this.percentHeight = 100;
         egret.lifecycle.addLifecycleListener(function (context) {
             // custom lifecycle plugin
         });
@@ -154,11 +159,11 @@ var Main = (function (_super) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
                         loading = new Loading();
-                        this.stage.addChild(loading);
+                        this.addChild(loading);
                         return [4 /*yield*/, RES.loadGroup("game", 0, loading)];
                     case 1:
                         _a.sent();
-                        this.stage.removeChild(loading);
+                        this.removeChild(loading);
                         return [3 /*break*/, 3];
                     case 2:
                         e_2 = _a.sent();
@@ -185,7 +190,7 @@ var Main = (function (_super) {
      * Create scene interface
      */
     Main.prototype.createGameScene = function () {
-        this.addChild(new Game());
+        this.addChild(new BeginUI());
     };
     return Main;
 }(eui.UILayer));

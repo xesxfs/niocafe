@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="BeginUISkin" width="750" height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="165efe57965" ></w:Config>
+	<e:Image source="begin_bg_png" left="0" right="0" top="0" bottom="0"/>
+	<e:Button id="beginBtn" label="" anchorOffsetX="0" width="448" anchorOffsetY="0" height="80" x="151" bottom="111"/>
+</e:Skin>

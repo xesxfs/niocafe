@@ -28,10 +28,17 @@
 //////////////////////////////////////////////////////////////////////////////////////
 
 class Main extends eui.UILayer {
-
+    public constructor() {
+        super();
+        this.percentWidth = 100;
+        this.percentHeight = 100;
+    }
 
     protected createChildren(): void {
         super.createChildren();
+        this.percentWidth = 100;
+        this.percentHeight = 100;
+
 
         egret.lifecycle.addLifecycleListener((context) => {
             // custom lifecycle plugin
@@ -72,6 +79,7 @@ class Main extends eui.UILayer {
             await RES.loadConfig("resource/default.res.json", "resource/");
             await this.loadTheme();
             await RES.loadGroup("preload", 0);
+
         }
         catch (e) {
             console.error(e);
@@ -81,9 +89,9 @@ class Main extends eui.UILayer {
     private async loadGameGroup() {
         try {
             let loading = new Loading();
-            this.stage.addChild(loading);
-            await RES.loadGroup("game", 0, loading);
-            this.stage.removeChild(loading);
+            this.addChild(loading);
+            await RES.loadGroup("game", 0,loading);
+            this.removeChild(loading);
 
         } catch (e) {
             console.error(e);
@@ -109,6 +117,6 @@ class Main extends eui.UILayer {
      * Create scene interface
      */
     protected createGameScene(): void {
-        this.addChild(new Game());
+        this.addChild(new BeginUI());
     }
 }

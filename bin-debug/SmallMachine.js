@@ -23,4 +23,5 @@ var SmallMachine = (function (_super) {
     return SmallMachine;
 }(BaseMachine));
 __reflect(SmallMachine.prototype, "SmallMachine");
+window["SmallMachine"] = SmallMachine;
 //# sourceMappingURL=SmallMachine.js.map
