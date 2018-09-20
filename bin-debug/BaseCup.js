@@ -14,9 +14,10 @@ var BaseCup = (function (_super) {
         var _this = _super.call(this) || this;
         _this.cupType = CupType.Small;
         _this.cupStatus = CupStatus.Free;
-        _this.cafeTime = 5000;
+        _this.cafeTime = 7000;
         _this.cafeHeight = 120;
         _this.packageHeight = 100;
+        _this.isSuccess = false;
         _this.foods = [];
         return _this;
     }
@@ -47,9 +48,10 @@ var BaseCup = (function (_super) {
     BaseCup.prototype.startWhater = function () {
         egret.Tween.removeTweens(this.whaters[this.cupType]);
         egret.Tween.get(this.whaters[this.cupType]).to({ height: this.packageHeight }, this.cafeTime).call(this.onPackage, this)
-            .to({ height: this.cafeHeight }, 1500).call(this.startFullWhater, this);
+            .to({ height: this.cafeHeight }, 4000).call(this.startFullWhater, this);
     };
     BaseCup.prototype.onPackage = function () {
+        SoundManager.playEffect("onpackage_eff_mp3");
         this.setStatus(CupStatus.Fulling);
         this.machine.changeStatus(MachineStatus.Package);
     };
@@ -73,12 +75,12 @@ var BaseCup = (function (_super) {
         this.machine.changeStatus(MachineStatus.Failed);
     };
     BaseCup.prototype.switch2Big = function () {
-        this.cafeTime = 7000;
+        this.cafeTime = 10000;
         this.bcup.visible = true;
         this.scup.visible = false;
     };
     BaseCup.prototype.switch2Small = function () {
-        this.cafeTime = 5000;
+        this.cafeTime = 8000;
         this.bcup.visible = false;
         this.scup.visible = true;
     };
@@ -133,6 +135,12 @@ var BaseCup = (function (_super) {
         if (this.foods.length >= 2) {
             this.setType(CupType.Big);
             this.setStatus(this.getStatus());
+        }
+        return true;
+    };
+    BaseCup.prototype.canAddFood = function (food) {
+        if (this.foods.length == 1 && this.foods[0] != food) {
+            return false;
         }
         return true;
     };

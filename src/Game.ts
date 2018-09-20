@@ -61,7 +61,7 @@ class Game extends BaseUI {
 			(this.midGroup.getChildAt(i) as eui.Group).width = this.stage.stageWidth;
 		}
 		this.midGroup.left = -this.stage.stageWidth;
-
+		App.scoreLab = this.scoreLab;
 		this.leftBtn.addEventListener("touchTap", this.onLeftBtn, this);
 		this.rightBtn.addEventListener("touchTap", this.onRightBtn, this);
 		this.orderUI = [this.orderUI1, this.orderUI2];
@@ -71,7 +71,18 @@ class Game extends BaseUI {
 		this.initMachines();
 		// egret.Tween.get(this).wait(3000).call(this.startOrder, this);
 		this.beginCD();
+		for (let i = 0; i < 8; i++) {
+			this.createOrder();
+		}
 	}
+
+	protected partAdded(partName: string, instance: any): void {
+		super.partAdded(partName, instance);
+		if (instance instanceof eui.Label) {
+			App.setFont(instance);
+		}
+	}
+
 
 	public initBottle() {
 		for (let i = 0; i < this.bottles.length; i++) {
@@ -91,9 +102,9 @@ class Game extends BaseUI {
 	}
 
 	public beginCD() {
-		egret.Tween.get(this.cdGroup).to({ scaleX: 1, scaleY: 1 }, 1000, egret.Ease.circInOut).call(() => { this.cdGroup.visible = false; });
-		egret.Tween.get(this.cdGroup0).wait(1000).to({ scaleX: 1, scaleY: 1 }, 1000, egret.Ease.circInOut).call(() => { this.cdGroup0.visible = false; });
-		egret.Tween.get(this.cdGroup1).wait(2000).to({ scaleX: 1, scaleY: 1 }, 900, egret.Ease.circInOut).call(() => { this.cdGroup1.visible = false; this.midGroup.visible = true;this.startOrder(); });
+		egret.Tween.get(this.cdGroup).call(() => { SoundManager.playEffect("begin_cd_mp3"); }).to({ scaleX: 1, scaleY: 1 }, 1000, egret.Ease.circInOut).call(() => { this.cdGroup.visible = false; });
+		egret.Tween.get(this.cdGroup0).wait(1000).call(() => { SoundManager.playEffect("begin_cd_mp3"); }).to({ scaleX: 1, scaleY: 1 }, 1000, egret.Ease.circInOut).call(() => { this.cdGroup0.visible = false; });
+		egret.Tween.get(this.cdGroup1).wait(2000).call(() => { SoundManager.playEffect("begin_cd_mp3"); }).to({ scaleX: 1, scaleY: 1 }, 900, egret.Ease.circInOut).call(() => { this.cdGroup1.visible = false; this.midGroup.visible = true; this.startOrder(); });
 	}
 
 	private onLeftBtn(e: egret.TouchEvent) {
@@ -106,7 +117,7 @@ class Game extends BaseUI {
 		} else {
 			offx = -this.stage.stageWidth;
 			this.rightBtn.visible = true;
-			this.leftBtn.visible = true;
+			this.leftBtn.visible = false;
 			this.selectCafePage = 1;
 		}
 		egret.Tween.get(this.midGroup).to({ left: offx }, 300);
@@ -118,6 +129,7 @@ class Game extends BaseUI {
 		if (this.midGroup.left == -this.stage.stageWidth) {
 			offx = -this.stage.stageWidth * 2;
 			this.rightBtn.visible = false;
+			this.leftBtn.visible = true;
 			this.selectCafePage = 2;
 		} else {
 			offx = -this.stage.stageWidth;
@@ -149,17 +161,13 @@ class Game extends BaseUI {
 			if (order) {
 				result = true;
 				this.orderUI[i].delOrder(order);
-				this.addScore();
+				// this.addScore();
 				break;
 			}
 		}
 		return result;
 	}
 
-	public addScore(score: number = 100) {
-		App.score += score;
-		this.scoreLab.text = App.score.toString();
-	}
 
 	private startOrder() {
 		this.intKet = egret.setInterval(this.timeTick, this, 1000);

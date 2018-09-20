@@ -13,22 +13,52 @@ var Result = (function (_super) {
     function Result() {
         var _this = _super.call(this) || this;
         _this.skinName = "ResultSkin";
+        _this.renderTexture = new egret.RenderTexture();
         return _this;
     }
     Result.prototype.childrenCreated = function () {
+        // App.setFont([this.timeLab, this.scoreLab]);
         this.cs = [this.c1, this.c2, this.c3, this.c4, this.c5];
         this.ss = [this.s1, this.s2, this.s3, this.s4, this.s5];
+        this.calc();
         this.retryBtn.addEventListener("touchTap", this.onRetry, this);
         this.shareBtn.addEventListener("touchTap", this.onShare, this);
-        this.c.text = App.score / 100 + '';
-        this.calc();
+        this.c.text = "*" + App.successCnt;
+        this.s.text = App.successCnt * 100 + '';
+        this.totallLab.text = App.score + "";
+        this.noLab.text = "NO." + (new Date()).valueOf();
+        egret.setTimeout(this.onRenderCall, this, 100);
+    };
+    Result.prototype.partAdded = function (partName, instance) {
+        _super.prototype.partAdded.call(this, partName, instance);
+        if (instance instanceof eui.Label) {
+            App.setFont(instance);
+        }
     };
     Result.prototype.onRetry = function () {
+        this.qrCode && this.qrCode.destroy();
         this.parent.addChild(new Game());
         this.parent.removeChild(this);
         App.reset();
     };
+    Result.prototype.onRenderCall = function () {
+        this.renderTexture.drawToTexture(this.renderGroup);
+        this.renderGroup.visible = false;
+        this.qrCode = new QRCode(this.renderTexture.toDataURL("image/png"));
+        this.qrCode.setPosition(this.renderGroup.x, this.renderGroup.y, this.renderGroup.width, this.renderGroup.height);
+        this.qrCode.showHtmlCode();
+    };
     Result.prototype.onShare = function () {
+        // this.renderTexture.drawToTexture(this.renderGroup);
+        // let qr = new eui.Image();
+        // qr.texture = this.renderTexture;
+        // qr.x = 10;
+        // this.addChild(qr);
+        // this.renderGroup.visible = false;
+        // this.renderTexture.saveToFile("image/png", "noicafe_order.png");
+        // var qrCode: QRCode = new QRCode(this.renderTexture.toDataURL("image/png"));
+        // qrCode.setPosition(this.renderGroup.x, this.renderGroup.y, this.renderGroup.width, this.renderGroup.height);
+        // qrCode.showHtmlCode();
     };
     Result.prototype.calc = function () {
         var calcFods = [0, 0, 0, 0, 0];
@@ -49,8 +79,6 @@ var Result = (function (_super) {
             subScore += calcFods[i] * subFoodScore;
             this.ss[i].text = "-" + calcFods[i] * subFoodScore;
         }
-        this.s.text = App.score.toString();
-        this.totallLab.text = App.score - subScore + "";
     };
     return Result;
 }(BaseUI));

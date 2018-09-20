@@ -33,8 +33,9 @@ var OrderUI = (function (_super) {
     OrderUI.prototype.generateOrder = function (order) {
         var count = order.generateCount();
         var foods = [];
+        var food = order.generateFood();
         for (var i = 0; i < count; i++) {
-            foods.push(order.generateFood());
+            foods.push(food);
         }
         order.setFoods(foods);
     };

@@ -16,6 +16,7 @@ class BeginUI extends BaseUI implements eui.UIComponent {
 	}
 
 	public onBegin() {
+		SoundManager.playEffect("begin_cd_mp3");
 		this.parent.addChild(new Game());
 		this.parent.removeChild(this);
 	}

@@ -33,14 +33,15 @@ class OrderUI extends eui.Component implements eui.UIComponent {
 	public generateOrder(order: FoodOrder) {
 		let count = order.generateCount();
 		let foods = [];
+		let food = order.generateFood();
 		for (let i = 0; i < count; i++) {
-			foods.push(order.generateFood());
+			foods.push(food);
 		}
 		order.setFoods(foods);
 	}
 
-	public delOrder(order:FoodOrder){
-		if(this.foodOrders.indexOf(order)>=0){
+	public delOrder(order: FoodOrder) {
+		if (this.foodOrders.indexOf(order) >= 0) {
 			order.init();
 		}
 	}

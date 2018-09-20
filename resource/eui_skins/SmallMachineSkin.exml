@@ -3,11 +3,11 @@
 	<w:Config id="165d23144cc" ></w:Config>
 	<e:Group>
 		<e:Image source="smal_cafe_png" scaleX="-1" verticalCenter="0" horizontalCenter="0"/>
-		<e:Group id="operationGroup" width="62" height="98" x="105" y="3" anchorOffsetX="0" anchorOffsetY="0">
-			<e:Image id="notImg" source="icon66_noinput_png" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"/>
-			<e:Image id="inputImg" source="icon_input_png" scaleX="1" scaleY="1" verticalCenter="0" horizontalCenter="0"/>
-			<e:Image id="delImg" source="icon_del_png" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"/>
-			<e:Image id="packageImg" source="icon_cafe_input_png" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"/>
+		<e:Group id="operationGroup" width="62" height="98" x="105" y="6" anchorOffsetX="0" anchorOffsetY="0">
+			<e:Image id="notImg" source="icon66_noinput_png" scaleX="1" scaleY="1" width="62" height="98" x="0" bottom="0"/>
+			<e:Image id="inputImg" source="icon_input_png" scaleX="1" scaleY="1" verticalCenter="0" horizontalCenter="0" width="53" height="68"/>
+			<e:Image id="delImg" source="icon_del_png" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" width="53" height="68"/>
+			<e:Image id="packageImg" source="icon_cafe_input_png" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" width="53" height="68"/>
 		</e:Group>
 		<ns1:SmallCup id="cup" x="96" y="141"/>
 		<e:Image id="leftwhater" source="cafe_whatering_png" x="121" y="139" height="115"/>

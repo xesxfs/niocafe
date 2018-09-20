@@ -22,6 +22,7 @@ var Game = (function (_super) {
             this.midGroup.getChildAt(i).width = this.stage.stageWidth;
         }
         this.midGroup.left = -this.stage.stageWidth;
+        App.scoreLab = this.scoreLab;
         this.leftBtn.addEventListener("touchTap", this.onLeftBtn, this);
         this.rightBtn.addEventListener("touchTap", this.onRightBtn, this);
         this.orderUI = [this.orderUI1, this.orderUI2];
@@ -31,6 +32,15 @@ var Game = (function (_super) {
         this.initMachines();
         // egret.Tween.get(this).wait(3000).call(this.startOrder, this);
         this.beginCD();
+        for (var i = 0; i < 8; i++) {
+            this.createOrder();
+        }
+    };
+    Game.prototype.partAdded = function (partName, instance) {
+        _super.prototype.partAdded.call(this, partName, instance);
+        if (instance instanceof eui.Label) {
+            App.setFont(instance);
+        }
     };
     Game.prototype.initBottle = function () {
         for (var i = 0; i < this.bottles.length; i++) {
@@ -49,9 +59,9 @@ var Game = (function (_super) {
     };
     Game.prototype.beginCD = function () {
         var _this = this;
-        egret.Tween.get(this.cdGroup).to({ scaleX: 1, scaleY: 1 }, 1000, egret.Ease.circInOut).call(function () { _this.cdGroup.visible = false; });
-        egret.Tween.get(this.cdGroup0).wait(1000).to({ scaleX: 1, scaleY: 1 }, 1000, egret.Ease.circInOut).call(function () { _this.cdGroup0.visible = false; });
-        egret.Tween.get(this.cdGroup1).wait(2000).to({ scaleX: 1, scaleY: 1 }, 900, egret.Ease.circInOut).call(function () { _this.cdGroup1.visible = false; _this.midGroup.visible = true; _this.startOrder(); });
+        egret.Tween.get(this.cdGroup).call(function () { SoundManager.playEffect("begin_cd_mp3"); }).to({ scaleX: 1, scaleY: 1 }, 1000, egret.Ease.circInOut).call(function () { _this.cdGroup.visible = false; });
+        egret.Tween.get(this.cdGroup0).wait(1000).call(function () { SoundManager.playEffect("begin_cd_mp3"); }).to({ scaleX: 1, scaleY: 1 }, 1000, egret.Ease.circInOut).call(function () { _this.cdGroup0.visible = false; });
+        egret.Tween.get(this.cdGroup1).wait(2000).call(function () { SoundManager.playEffect("begin_cd_mp3"); }).to({ scaleX: 1, scaleY: 1 }, 900, egret.Ease.circInOut).call(function () { _this.cdGroup1.visible = false; _this.midGroup.visible = true; _this.startOrder(); });
     };
     Game.prototype.onLeftBtn = function (e) {
         egret.Tween.removeTweens(this.midGroup);
@@ -64,7 +74,7 @@ var Game = (function (_super) {
         else {
             offx = -this.stage.stageWidth;
             this.rightBtn.visible = true;
-            this.leftBtn.visible = true;
+            this.leftBtn.visible = false;
             this.selectCafePage = 1;
         }
         egret.Tween.get(this.midGroup).to({ left: offx }, 300);
@@ -75,6 +85,7 @@ var Game = (function (_super) {
         if (this.midGroup.left == -this.stage.stageWidth) {
             offx = -this.stage.stageWidth * 2;
             this.rightBtn.visible = false;
+            this.leftBtn.visible = true;
             this.selectCafePage = 2;
         }
         else {
@@ -105,16 +116,11 @@ var Game = (function (_super) {
             if (order) {
                 result = true;
                 this.orderUI[i].delOrder(order);
-                this.addScore();
+                // this.addScore();
                 break;
             }
         }
         return result;
-    };
-    Game.prototype.addScore = function (score) {
-        if (score === void 0) { score = 100; }
-        App.score += score;
-        this.scoreLab.text = App.score.toString();
     };
     Game.prototype.startOrder = function () {
         this.intKet = egret.setInterval(this.timeTick, this, 1000);
@@ -123,7 +129,7 @@ var Game = (function (_super) {
         this.createOrder();
         this.updateTime();
         this.second++;
-        if (this.second > 120) {
+        if (this.second > 30) {
             this.gameEnd();
             egret.clearInterval(this.intKet);
             this.intKet = null;

@@ -2,7 +2,7 @@ class BigCup extends BaseCup {
 
 	public constructor() {
 		super();
-		this.cafeTime = 7000;
+		this.cafeTime = 9000;
 		this.cafeHeight = 146;
 	}
 

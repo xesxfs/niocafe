@@ -38,7 +38,7 @@ class Main extends eui.UILayer {
         super.createChildren();
         this.percentWidth = 100;
         this.percentHeight = 100;
-
+        egret.ImageLoader.crossOrigin = "anonymous";
 
         egret.lifecycle.addLifecycleListener((context) => {
             // custom lifecycle plugin
@@ -90,7 +90,7 @@ class Main extends eui.UILayer {
         try {
             let loading = new Loading();
             this.addChild(loading);
-            await RES.loadGroup("game", 0,loading);
+            await RES.loadGroup("game", 0, loading);
             this.removeChild(loading);
 
         } catch (e) {
@@ -117,6 +117,7 @@ class Main extends eui.UILayer {
      * Create scene interface
      */
     protected createGameScene(): void {
+        App.stage = this.stage;
         this.addChild(new BeginUI());
     }
 }

@@ -1,0 +1,29 @@
+{
+	"skins": {
+		"eui.Button": "resource/eui_skins/ButtonSkin.exml",
+		"Bottle": "resource/eui_skins/BottleSkin.exml",
+		"BigMachine": "resource/eui_skins/BigMachineSkin.exml",
+		"BigCup": "resource/eui_skins/BigCupSkin.exml",
+		"SmallMachine": "resource/eui_skins/SmallMachineSkin.exml",
+		"SmallCup": "resource/eui_skins/SmallCupSkin.exml",
+		"OrderUI": "resource/eui_skins/OrderUISkin.exml",
+		"FoodOrder": "resource/eui_skins/FoodOrderSkin.exml",
+		"BeginUI": "resource/eui_skins/BeginUISkin.exml"
+	},
+	"autoGenerateExmlsList": true,
+	"exmls": [
+		"resource/eui_skins/BeginUISkin.exml",
+		"resource/eui_skins/BigCupSkin.exml",
+		"resource/eui_skins/BigMachineSkin.exml",
+		"resource/eui_skins/BottleSkin.exml",
+		"resource/eui_skins/ButtonSkin.exml",
+		"resource/eui_skins/FoodOrderSkin.exml",
+		"resource/eui_skins/GameSkin.exml",
+		"resource/eui_skins/LoadingSkin.exml",
+		"resource/eui_skins/OrderUISkin.exml",
+		"resource/eui_skins/ResultSkin.exml",
+		"resource/eui_skins/SmallCupSkin.exml",
+		"resource/eui_skins/SmallMachineSkin.exml"
+	],
+	"path": "resource/default.thm.json"
+}

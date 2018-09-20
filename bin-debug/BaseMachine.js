@@ -56,9 +56,15 @@ var BaseMachine = (function (_super) {
         }
     };
     BaseMachine.prototype.startCafe = function () {
+        if (this.onPackageCafe(this.cup.foods)) {
+            this.cup.isSuccess = true;
+        }
+        else {
+            this.cup.isSuccess = false;
+        }
+        SoundManager.playEffect("input_cafe_mp3");
         this.changeStatus(MachineStatus.Inputing);
         this.cup.setStatus(CupStatus.Geting);
-        console.log(this.cup.scuping.visible);
         egret.Tween.removeTweens(this.leftwhater);
         egret.Tween.removeTweens(this.rightwhater);
         egret.Tween.get(this.leftwhater).to({ height: this.whaterHeight }, 1000);
@@ -80,19 +86,26 @@ var BaseMachine = (function (_super) {
             case MachineStatus.Inputing:
                 break;
             case MachineStatus.Package:
-                if (this.onPackageCafe(this.cup.foods)) {
-                    this.showFull();
-                }
-                else {
-                    this.showDel();
-                }
                 this.cup.stop();
                 this.resetWhater();
                 this.delFood();
                 this.changeStatus(MachineStatus.Free);
                 this.cup.reset();
+                if (this.cup.isSuccess) {
+                    this.showFull();
+                    this.addCafeScore();
+                }
+                else {
+                    this.showDel();
+                }
                 break;
         }
+    };
+    BaseMachine.prototype.addCafeScore = function (score) {
+        if (score === void 0) { score = 100; }
+        App.score += score;
+        App.successCnt++;
+        App.updateScore();
     };
     BaseMachine.prototype.onCafeComplete = function () {
         this.cup.startWhater();
@@ -101,14 +114,28 @@ var BaseMachine = (function (_super) {
         return this.status;
     };
     BaseMachine.prototype.addFood = function (food) {
-        if (this.status == MachineStatus.Free || this.status == MachineStatus.CanInput) {
+        if ((this.status == MachineStatus.Free || this.status == MachineStatus.CanInput) && this.cup.canAddFood(food)) {
             if (this.cup.getFoodNum() >= 2)
                 return;
+            SoundManager.playEffect("add_food_eff_mp3");
+            this.subFoodScore(food);
             this.cup.addFood(food);
+            this.cup.setStatus(CupStatus.Geting);
             var foodImgSrc = Bottle.FoodResource[FoodType[food]];
             this.foodsImg[this.cup.getFoodNum() - 1].source = foodImgSrc;
             this.changeStatus(MachineStatus.CanInput);
         }
+    };
+    BaseMachine.prototype.subFoodScore = function (i) {
+        var subFoodScore = 0;
+        if (i == FoodType.Sugar || i == FoodType.Fragrans) {
+            subFoodScore = 10;
+        }
+        else {
+            subFoodScore = 15;
+        }
+        App.score -= subFoodScore;
+        App.updateScore();
     };
     BaseMachine.prototype.delFood = function () {
         this.cup.delFood();
@@ -118,6 +145,7 @@ var BaseMachine = (function (_super) {
     };
     BaseMachine.prototype.showFull = function () {
         var _this = this;
+        SoundManager.playEffect("oncomplete_mp3");
         this.cup.visible = false;
         var img = this.showFulls[this.cup.getType()];
         img.visible = true;
@@ -125,6 +153,7 @@ var BaseMachine = (function (_super) {
     };
     BaseMachine.prototype.showDel = function () {
         var _this = this;
+        SoundManager.playEffect("dle_eff_mp3");
         var img = this.showDels[this.cup.getType()];
         img.visible = true;
         this.cup.visible = false;

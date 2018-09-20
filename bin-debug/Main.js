@@ -83,6 +83,7 @@ var Main = (function (_super) {
         _super.prototype.createChildren.call(this);
         this.percentWidth = 100;
         this.percentHeight = 100;
+        egret.ImageLoader.crossOrigin = "anonymous";
         egret.lifecycle.addLifecycleListener(function (context) {
             // custom lifecycle plugin
         });
@@ -190,6 +191,7 @@ var Main = (function (_super) {
      * Create scene interface
      */
     Main.prototype.createGameScene = function () {
+        App.stage = this.stage;
         this.addChild(new BeginUI());
     };
     return Main;

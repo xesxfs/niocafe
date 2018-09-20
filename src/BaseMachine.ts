@@ -80,9 +80,14 @@ class BaseMachine extends eui.Component implements eui.UIComponent {
 	}
 
 	public startCafe() {
+		if (this.onPackageCafe(this.cup.foods)) {
+			this.cup.isSuccess = true;
+		} else {
+			this.cup.isSuccess = false;
+		}
+		SoundManager.playEffect("input_cafe_mp3");
 		this.changeStatus(MachineStatus.Inputing);
-		this.cup.setStatus(CupStatus.Geting);	
-		console.log(this.cup.scuping.visible);
+		this.cup.setStatus(CupStatus.Geting);
 		egret.Tween.removeTweens(this.leftwhater);
 		egret.Tween.removeTweens(this.rightwhater);
 		egret.Tween.get(this.leftwhater).to({ height: this.whaterHeight }, 1000);
@@ -106,22 +111,28 @@ class BaseMachine extends eui.Component implements eui.UIComponent {
 			case MachineStatus.Inputing:
 				break;
 			case MachineStatus.Package:
-				if (this.onPackageCafe(this.cup.foods)) {
-					this.showFull();
-				} else {
-					this.showDel();
-				}
 				this.cup.stop();
 				this.resetWhater();
 				this.delFood();
 				this.changeStatus(MachineStatus.Free);
 				this.cup.reset();
+				if (this.cup.isSuccess) {
+					this.showFull();
+					this.addCafeScore();
+				} else {
+					this.showDel();
+				}
 				break;
 		}
 	}
+	public addCafeScore(score: number = 100) {
+		App.score += score;
+		App.successCnt++;
+		App.updateScore();
+	}
 
 	public onCafeComplete() {
-		(this.cup as BigCup).startWhater();
+		this.cup.startWhater();
 	}
 
 	public getStatus(): MachineStatus {
@@ -129,13 +140,27 @@ class BaseMachine extends eui.Component implements eui.UIComponent {
 	}
 
 	public addFood(food: FoodType) {
-		if (this.status == MachineStatus.Free || this.status == MachineStatus.CanInput) {
+		if ((this.status == MachineStatus.Free || this.status == MachineStatus.CanInput) && this.cup.canAddFood(food)) {
 			if ((this.cup as BigCup).getFoodNum() >= 2) return;
+			SoundManager.playEffect("add_food_eff_mp3");
+			this.subFoodScore(food);
 			this.cup.addFood(food);
+			this.cup.setStatus(CupStatus.Geting);
 			let foodImgSrc = Bottle.FoodResource[FoodType[food]];
 			this.foodsImg[(this.cup as BigCup).getFoodNum() - 1].source = foodImgSrc;
 			this.changeStatus(MachineStatus.CanInput);
 		}
+	}
+
+	public subFoodScore(i: FoodType) {
+		let subFoodScore = 0
+		if (i == FoodType.Sugar || i == FoodType.Fragrans) {
+			subFoodScore = 10;
+		} else {
+			subFoodScore = 15;
+		}
+		App.score -= subFoodScore;
+		App.updateScore();
 	}
 
 	public delFood() {
@@ -146,6 +171,7 @@ class BaseMachine extends eui.Component implements eui.UIComponent {
 	}
 
 	public showFull() {
+		SoundManager.playEffect("oncomplete_mp3");
 		this.cup.visible = false;
 		let img = this.showFulls[this.cup.getType()];
 		img.visible = true;
@@ -153,6 +179,7 @@ class BaseMachine extends eui.Component implements eui.UIComponent {
 	}
 
 	public showDel() {
+		SoundManager.playEffect("dle_eff_mp3");
 		let img = this.showDels[this.cup.getType()];
 		img.visible = true;
 		this.cup.visible = false;

@@ -27,11 +27,12 @@ class BaseCup extends eui.Component implements eui.UIComponent {
 	public whaters: eui.Rect[];
 	public fwhaters: eui.Rect[];
 
-	public cafeTime: number = 5000;
+	public cafeTime: number = 7000;
 	public cafeHeight: number = 120;
 	public packageHeight: number = 100;
 	public statusShow: Array<Array<eui.Image>>;
 	public cupMask: Array<Array<eui.Image>>;
+	public isSuccess: boolean = false;
 	public constructor() {
 		super();
 		this.foods = [];
@@ -68,10 +69,11 @@ class BaseCup extends eui.Component implements eui.UIComponent {
 	public startWhater() {
 		egret.Tween.removeTweens(this.whaters[this.cupType]);
 		egret.Tween.get(this.whaters[this.cupType]).to({ height: this.packageHeight }, this.cafeTime).call(this.onPackage, this)
-			.to({ height: this.cafeHeight }, 1500).call(this.startFullWhater, this);
+			.to({ height: this.cafeHeight }, 4000).call(this.startFullWhater, this);
 	}
 
 	public onPackage() {
+		SoundManager.playEffect("onpackage_eff_mp3");
 		this.setStatus(CupStatus.Fulling);
 		this.machine.changeStatus(MachineStatus.Package);
 	}
@@ -100,13 +102,13 @@ class BaseCup extends eui.Component implements eui.UIComponent {
 	}
 
 	public switch2Big() {
-		this.cafeTime = 7000;
+		this.cafeTime = 10000;
 		this.bcup.visible = true;
 		this.scup.visible = false;
 	}
 
 	public switch2Small() {
-		this.cafeTime = 5000;
+		this.cafeTime = 8000;
 		this.bcup.visible = false;
 		this.scup.visible = true;
 	}
@@ -167,6 +169,12 @@ class BaseCup extends eui.Component implements eui.UIComponent {
 		if (this.foods.length >= 2) {
 			this.setType(CupType.Big);
 			this.setStatus(this.getStatus());
+		}
+		return true;
+	}
+	public canAddFood(food:FoodType): boolean {
+		if (this.foods.length == 1 && this.foods[0] != food) {
+			return false;
 		}
 		return true;
 	}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="ResultSkin" width="750" height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
-	<e:Image source="result_bg_png"/>
+	<e:Image source="result_bg_png" left="0" right="0" top="0" bottom="0"/>
 	<e:Button id="retryBtn" label="" y="1178" left="160">
 		<e:skinName>
 			<e:Skin states="up,down,disabled">
@@ -17,25 +17,47 @@
 			</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Label text="Try again" x="150" y="1277" textColor="0x000000" bold="true"/>
-	<e:Label text="Share" x="509" y="1277" textColor="0x000000" bold="true"/>
-	<e:Label text="奶油" x="203" y="518" textColor="0x000000"/>
-	<e:Label text="NO.00002" x="119" y="222" textColor="0x000000" size="20"/>
-	<e:Label text="栗子" x="203" y="557" textColor="0x000000"/>
-	<e:Label text="桂花" x="203" y="597" textColor="0x000000"/>
-	<e:Label text="坚果" x="203" y="636" textColor="0x000000"/>
-	<e:Label text="糖" x="203" y="675.32" textColor="0x000000"/>
-	<e:Label id="c" text="*30" x="353" y="459.95" textColor="0x000000"/>
-	<e:Label id="c1" text="*30" x="353" y="518" textColor="0x000000"/>
-	<e:Label id="c2" text="*30" x="353" y="557" textColor="0x000000"/>
-	<e:Label id="c3" text="*30" x="353" y="596" textColor="0x000000"/>
-	<e:Label id="c4" text="*30" x="353" y="635" textColor="0x000000"/>
-	<e:Label id="c5" text="*30" x="353" y="674.6" textColor="0x000000"/>
-	<e:Label id="s" text="*30" x="540.3" y="457.97" textColor="0x000000"/>
-	<e:Label id="s1" text="*30" x="543.63" y="518" textColor="0x000000"/>
-	<e:Label id="s2" text="*30" x="544.98" y="557" textColor="0x000000"/>
-	<e:Label id="s3" text="*30" x="545.98" y="596" textColor="0x000000"/>
-	<e:Label id="s4" text="*30" x="543.98" y="635" textColor="0x000000"/>
-	<e:Label id="s5" text="*30" x="545.98" y="674.35" textColor="0x000000"/>
-	<e:Label id="totallLab" text="*30" x="547.99" y="794.58" textColor="0x000000"/>
+	<e:Label text="Try again" x="150" y="1277" textColor="0x000000" bold="true" fontFamily="BlueSkyStandardRegular"/>
+	<e:Label text="长按保存" y="1277" textColor="0x000000" bold="true" right="134" fontFamily="BlueSkyStandardRegular"/>
+	<e:Group id="renderGroup" height="940.67" y="173" anchorOffsetX="0" anchorOffsetY="0" left="88" right="107">
+		<e:Image id="obg" source="order_bg_png" anchorOffsetX="0" anchorOffsetY="0" left="0" right="0" top="0" height="940.67"/>
+		<e:Label id="noLab" text="NO.00002" x="37.65" y="36.66" textColor="0x000000" size="20" fontFamily="BlueSkyStandardRegular"/>
+		<e:Label text="奶油" x="109.66" y="344.68" textColor="0x000000" fontFamily="BlueSkyStandardRegular"/>
+		<e:Label text="栗子" x="109.66" y="383.68" textColor="0x000000" fontFamily="BlueSkyStandardRegular"/>
+		<e:Label text="桂花" x="109.66" y="423.68" textColor="0x000000" fontFamily="BlueSkyStandardRegular"/>
+		<e:Label text="坚果" x="109.66" y="462.68" textColor="0x000000" fontFamily="BlueSkyStandardRegular"/>
+		<e:Label text="糖" x="109.66" y="502" textColor="0x000000" fontFamily="BlueSkyStandardRegular"/>
+		<e:Label id="c" text="*30" y="285.3" textColor="0x000000" horizontalCenter="-4.5" fontFamily="BlueSkyStandardRegular"/>
+		<e:Label id="c1" text="*30" y="343.35" textColor="0x000000" horizontalCenter="-4.5" fontFamily="BlueSkyStandardRegular"/>
+		<e:Label id="c2" text="*30" y="382.35" textColor="0x000000" horizontalCenter="-4.5" fontFamily="BlueSkyStandardRegular"/>
+		<e:Label id="c3" text="*30" y="421.35" textColor="0x000000" horizontalCenter="-4.5" fontFamily="BlueSkyStandardRegular"/>
+		<e:Label id="c4" text="*30" y="460.35" textColor="0x000000" horizontalCenter="-4.5" fontFamily="BlueSkyStandardRegular"/>
+		<e:Label id="c5" text="*30" y="499.95" textColor="0x000000" horizontalCenter="-4.5" fontFamily="BlueSkyStandardRegular"/>
+		<e:Label id="s" text="*30" y="277.98" textColor="0x000000" right="60" fontFamily="BlueSkyStandardRegular"/>
+		<e:Label id="s1" text="*30" y="338.01" textColor="0x000000" right="56" fontFamily="BlueSkyStandardRegular"/>
+		<e:Label id="s2" text="*30" y="377.01" textColor="0x000000" right="55" fontFamily="BlueSkyStandardRegular"/>
+		<e:Label id="s3" text="*30" y="416.01" textColor="0x000000" right="54" fontFamily="BlueSkyStandardRegular"/>
+		<e:Label id="s4" text="*30" y="455.01" textColor="0x000000" right="56" fontFamily="BlueSkyStandardRegular"/>
+		<e:Label id="s5" text="*30" y="494.36" textColor="0x000000" right="54" fontFamily="BlueSkyStandardRegular"/>
+		<e:Label id="totallLab" text="*30" y="621.26" textColor="0x000000" right="49" fontFamily="BlueSkyStandardRegular"/>
+		<e:Image source="qr_png" y="713.25" width="150" height="150" horizontalCenter="0"/>
+	</e:Group>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </e:Skin>

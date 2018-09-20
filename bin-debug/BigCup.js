@@ -12,7 +12,7 @@ var BigCup = (function (_super) {
     __extends(BigCup, _super);
     function BigCup() {
         var _this = _super.call(this) || this;
-        _this.cafeTime = 7000;
+        _this.cafeTime = 9000;
         _this.cafeHeight = 146;
         return _this;
     }
