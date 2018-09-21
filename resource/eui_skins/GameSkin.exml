@@ -3,68 +3,105 @@
 	<e:Group left="0" right="0" top="0" bottom="0">
 		<e:Image source="bg_png" left="0" right="0" top="0" bottom="0"/>
 
-		<e:Group id="midGroup" left="0" right="0" top="0" bottom="0" visible="false">
+		<e:Group id="midGroup" left="0" right="0" top="0" bottom="0">
 			<e:Group scaleX="1" scaleY="1" width="750" x="-750" top="0" bottom="0">
-				<e:Image source="cafe_bg_png" left="0" right="0" top="0" bottom="0"/>
-				<e:Group y="156.68" horizontalCenter="0">
-					<ns1:SmallMachine id="sm1" left="0" top="0"/>
-					<ns1:SmallMachine id="sm2" x="260" y="0"/>
+				<e:Image source="moon_png" top="-121" horizontalCenter="0"/>
+				<e:Group y="156.68" left="0" right="0">
+					<e:Image source="cafe_item_png" x="4" y="107.2"/>
+					<e:Group horizontalCenter="0" y="18">
+						<ns1:SmallMachine id="sm1" left="120" top="-45" x="-210" y="-160" scaleX="1" scaleY="1"/>
+						<ns1:SmallMachine id="sm2" x="51.200000000000045" y="-160.45" scaleX="1" scaleY="1"/>
+						<e:layout>
+							<e:HorizontalLayout/>
+						</e:layout>
+					</e:Group>
+
+
 					<e:layout>
 						<e:BasicLayout/>
 					</e:layout>
 				</e:Group>
-				<e:Group y="494.58" horizontalCenter="0">
-					<ns1:SmallMachine id="sm3" left="0" top="0"/>
-					<ns1:SmallMachine id="sm4" x="260" y="0"/>
+				<e:Group y="494.57" horizontalCenter="0">
+					<e:Image source="cafe_item_png" x="4" y="107.2"/>
+					<e:Group horizontalCenter="0">
+					<ns1:SmallMachine id="sm3" left="120" top="-45" x="-210" y="-160" scaleX="1" scaleY="1"/>
+					<ns1:SmallMachine id="sm4" x="51.200000000000045" y="-160.45" scaleX="1" scaleY="1"/>
+					<e:layout>
+						<e:HorizontalLayout/>
+					</e:layout>
+					</e:Group>
 					<e:layout>
 					<e:BasicLayout/>
 					</e:layout>
 				</e:Group>
-				<e:Group y="833.97" horizontalCenter="0">
-					<ns1:SmallMachine id="sm5" left="0" top="0"/>
-					<ns1:SmallMachine id="sm6" x="260" y="0"/>		
+				<e:Group y="835.53" horizontalCenter="0">
+					<e:Image source="cafe_item_png" x="4" y="107.2"/>
+					<e:Group horizontalCenter="0">
+					<ns1:SmallMachine id="sm5" left="120" top="-45" x="-210" y="-160" scaleX="1" scaleY="1"/>
+					<ns1:SmallMachine id="sm6" x="51.200000000000045" y="-160.45" scaleX="1" scaleY="1"/>
+					<e:layout>
+						<e:HorizontalLayout/>
+					</e:layout>
+					</e:Group>
 					<e:layout>
 					<e:BasicLayout/>
 					</e:layout>
 				</e:Group>
+
+
 			</e:Group>
 			<e:Group scaleX="1" scaleY="1" width="750" x="0" top="0" bottom="210" anchorOffsetY="0" height="1334">
-
+				<e:Image source="moon_png" top="-211" horizontalCenter="0"/>
 				<e:Image source="logo_txt_png" horizontalCenter="0.5" top="90"/>
 				<e:Image source="game_txt_png" horizontalCenter="91.5" top="161"/>
 				<ns1:BigMachine id="bigMachine" width="571" height="484" horizontalCenter="0.5" top="566"/>
 				<ns1:OrderUI id="orderUI1" horizontalCenter="0" top="228"/>
 				<ns1:OrderUI id="orderUI2" width="607" height="154" horizontalCenter="0" top="398"/>
-
-
-
-
-
 			</e:Group>
-			<e:Group scaleX="1" scaleY="1" width="750" x="750" top="0" bottom="0">
-				<e:Image source="cafe_bg_png" left="0" right="0" top="0" bottom="0"/>
-				<e:Group y="156.68" horizontalCenter="0">
-					<ns1:SmallMachine id="sm7" left="0" top="0"/>
-					<ns1:SmallMachine id="sm8" x="260" y="0"/>
+			<e:Group scaleX="1" scaleY="1" width="750" x="-740" top="0" bottom="0" y="10">
+				<e:Image source="moon_png" top="-121" horizontalCenter="0"/>
+				<e:Group y="156.68" left="0" right="0">
+				<e:Image source="cafe_item_png" y="107.2" left="0" right="0"/>
+				<e:Group horizontalCenter="0" y="18.19">
+					<ns1:SmallMachine id="sm7" left="120" top="-45" x="-210" y="-160" scaleX="1" scaleY="1"/>
+					<ns1:SmallMachine id="sm8" x="51.200000000000045" y="-160.45" scaleX="1" scaleY="1"/>
 					<e:layout>
-					<e:BasicLayout/>
+					<e:HorizontalLayout/>
 					</e:layout>
 				</e:Group>
-				<e:Group y="494.58" horizontalCenter="0">
-					<ns1:SmallMachine id="sm9" left="0" top="0"/>
-					<ns1:SmallMachine id="sm10" x="260" y="0"/>
-					<e:layout>
+				<e:layout>
 					<e:BasicLayout/>
+				</e:layout>
+				</e:Group>
+				<e:Group y="494.57" left="0" right="0">
+				<e:Image source="cafe_item_png" y="107.2" left="0" right="0"/>
+				<e:Group horizontalCenter="0" y="19.71">
+					<ns1:SmallMachine id="sm9" left="120" top="-45" x="-210" y="-160" scaleX="1" scaleY="1"/>
+					<ns1:SmallMachine id="sm10" x="51.200000000000045" y="-160.45" scaleX="1" scaleY="1"/>
+					<e:layout>
+					<e:HorizontalLayout/>
 					</e:layout>
 				</e:Group>
-				<e:Group y="833.97" horizontalCenter="0">
-					<ns1:SmallMachine id="sm11" left="0" top="0"/>
-					<ns1:SmallMachine id="sm12" x="260" y="0"/>
-					<e:layout>
+				<e:layout>
 					<e:BasicLayout/>
+				</e:layout>
+				</e:Group>
+				<e:Group y="827.93" left="0" right="0">
+				<e:Image source="cafe_item_png" y="107.2" left="0" right="0"/>
+				<e:Group horizontalCenter="0" y="15.15">
+					<ns1:SmallMachine id="sm11" left="120" top="-45" x="-210" y="-160" scaleX="1" scaleY="1"/>
+					<ns1:SmallMachine id="sm12" x="51.200000000000045" y="-160.45" scaleX="1" scaleY="1"/>
+					<e:layout>
+					<e:HorizontalLayout/>
 					</e:layout>
+				</e:Group>
+				<e:layout>
+					<e:BasicLayout/>
+				</e:layout>
 				</e:Group>
 			</e:Group>
+
+
 			<e:layout>
 				<e:HorizontalLayout/>
 			</e:layout>
@@ -82,15 +119,15 @@
 				</e:layout>
 			</e:Group>
 		</e:Group>
-		<e:Group id="cdGroup1" verticalCenter="0" anchorOffsetX="98" anchorOffsetY="98" scaleX="0.2" scaleY="0.2" x="376">
+		<e:Group id="cdGroup1" verticalCenter="0" anchorOffsetX="98" anchorOffsetY="98" scaleX="0.2" scaleY="0.2" horizontalCenter="0">
 			<e:Image source="game_cd_png"/>
 			<e:Label text="1" horizontalCenter="0" verticalCenter="0" size="100" bold="true"/>
 		</e:Group>
-		<e:Group id="cdGroup0" verticalCenter="0" anchorOffsetX="98" anchorOffsetY="98" scaleX="0.2" scaleY="0.2" x="376">
+		<e:Group id="cdGroup0" verticalCenter="0" anchorOffsetX="98" anchorOffsetY="98" scaleX="0.2" scaleY="0.2" horizontalCenter="0">
 			<e:Image source="game_cd_png"/>
 			<e:Label text="2" horizontalCenter="0" verticalCenter="0" size="100" bold="true"/>
 		</e:Group>
-		<e:Group id="cdGroup" verticalCenter="0" anchorOffsetX="98" anchorOffsetY="98" scaleX="0.2" scaleY="0.2" x="376">
+		<e:Group id="cdGroup" verticalCenter="0" anchorOffsetX="98" anchorOffsetY="98" scaleX="0.2" scaleY="0.2" horizontalCenter="0">
 			<e:Image source="game_cd_png"/>
 			<e:Label text="3" horizontalCenter="0" verticalCenter="0" size="100" bold="true"/>
 		</e:Group>

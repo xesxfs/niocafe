@@ -192,7 +192,13 @@ var Main = (function (_super) {
      */
     Main.prototype.createGameScene = function () {
         App.stage = this.stage;
-        this.addChild(new BeginUI());
+        var guid = egret.localStorage.getItem("guide");
+        if (guid === "guide") {
+            this.addChild(new BeginUI());
+        }
+        else {
+            this.addChild(new GameGuide());
+        }
     };
     return Main;
 }(eui.UILayer));

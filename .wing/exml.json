@@ -3,5 +3,10 @@
         "path": "BeginUI.ts",
         "class": "BeginUI",
         "parentPath": ""
+    },
+    "165fa9cc7e9": {
+        "path": "GameGuide.ts",
+        "class": "GameGuide",
+        "parentPath": ""
     }
 }

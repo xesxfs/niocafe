@@ -29,7 +29,9 @@ class Result extends BaseUI {
 	public renderGroup: eui.Group;
 	public obg: eui.Image;
 	public qrCode: QRCode;
+	public shareBg: QRCode;
 
+	// public caSaveLab: eui.Label;
 
 	public childrenCreated() {
 		// App.setFont([this.timeLab, this.scoreLab]);
@@ -42,7 +44,9 @@ class Result extends BaseUI {
 		this.s.text = App.successCnt * 100 + '';
 		this.totallLab.text = App.score + "";
 		this.noLab.text = "NO." + (new Date()).valueOf();
-		egret.setTimeout(this.onRenderCall, this, 100);
+		window["title"] = "我在NIO House成功制作了" + App.successCnt + "中秋特饮，你呢？";
+		// egret.setTimeout(this.onRenderCall, this, 100);
+		// this.caSaveLab.visible = false;
 
 	}
 	protected partAdded(partName: string, instance: any): void {
@@ -53,31 +57,33 @@ class Result extends BaseUI {
 	}
 
 	private onRetry() {
-		this.qrCode&&this.qrCode.destroy();
+		this.qrCode && this.qrCode.destroy();
 		this.parent.addChild(new Game());
 		this.parent.removeChild(this);
 		App.reset();
+		// this.caSaveLab.visible = false;
 	}
 
 	public onRenderCall() {
 		this.renderTexture.drawToTexture(this.renderGroup);
-		this.renderGroup.visible = false;
+		// this.renderGroup.visible = false;
+
+
 		this.qrCode = new QRCode(this.renderTexture.toDataURL("image/png"));
 		this.qrCode.setPosition(this.renderGroup.x, this.renderGroup.y, this.renderGroup.width, this.renderGroup.height);
 		this.qrCode.showHtmlCode();
+
+		this.shareBg = new QRCode("resource/assets/bg/share_bg.png")
+		this.shareBg.setPosition(0, this.renderGroup.height - 171, this.renderGroup.width, 171);
+		this.shareBg.showHtmlCode();
+
+
+
 	}
 
 	private onShare() {
-		// this.renderTexture.drawToTexture(this.renderGroup);
-		// let qr = new eui.Image();
-		// qr.texture = this.renderTexture;
-		// qr.x = 10;
-		// this.addChild(qr);
-		// this.renderGroup.visible = false;
-		// this.renderTexture.saveToFile("image/png", "noicafe_order.png");
-		// var qrCode: QRCode = new QRCode(this.renderTexture.toDataURL("image/png"));
-		// qrCode.setPosition(this.renderGroup.x, this.renderGroup.y, this.renderGroup.width, this.renderGroup.height);
-		// qrCode.showHtmlCode();
+		// this.caSaveLab.visible = true;
+		this.onRenderCall();
 	}
 
 	public calc() {

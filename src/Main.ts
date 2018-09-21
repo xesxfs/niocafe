@@ -88,10 +88,10 @@ class Main extends eui.UILayer {
 
     private async loadGameGroup() {
         try {
-            let loading = new Loading();
-            this.addChild(loading);
-            await RES.loadGroup("game", 0, loading);
-            this.removeChild(loading);
+            // let loading = new Loading();
+            // this.addChild(loading);
+            await RES.loadGroup("game", 0);
+            // this.removeChild(loading);
 
         } catch (e) {
             console.error(e);
@@ -118,6 +118,13 @@ class Main extends eui.UILayer {
      */
     protected createGameScene(): void {
         App.stage = this.stage;
-        this.addChild(new BeginUI());
+        let guid = egret.localStorage.getItem("guide");
+        if (guid === "guide") {
+            this.addChild(new BeginUI());
+        } else {
+            this.addChild(new GameGuide());
+        }
+
+
     }
 }

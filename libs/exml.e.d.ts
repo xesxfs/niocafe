@@ -12,6 +12,8 @@ declare module skins{
 }
 declare class FoodOrderSkin extends eui.Skin{
 }
+declare class GameGuideSkin extends eui.Skin{
+}
 declare class GameSkin extends eui.Skin{
 }
 declare class LoadingSkin extends eui.Skin{

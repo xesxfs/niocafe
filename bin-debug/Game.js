@@ -129,7 +129,7 @@ var Game = (function (_super) {
         this.createOrder();
         this.updateTime();
         this.second++;
-        if (this.second > 30) {
+        if (this.second > 120) {
             this.gameEnd();
             egret.clearInterval(this.intKet);
             this.intKet = null;

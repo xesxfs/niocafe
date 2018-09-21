@@ -1,0 +1,254 @@
+{
+	"groups": [
+		{
+			"keys": "loading_bg_png,loading_logo_png,figer_png",
+			"name": "preload"
+		},
+		{
+			"keys": "big_cafe_png,big_cup_complete0_png,big_cup_complete1_png,big_cup_geting_png,bottle_png,brioche_png,cafe_whatering_png,chestnut_png,fragrans_png,game_bg01_png,game_bg2_png,game_cafeing_bg_png,game_cd_png,game_order_bg_png,game_top_png,game_txt_png,icon_cafe_input_png,icon_del_png,icon_input_png,icon66_noinput_png,left_btn_png,loading_logo_png,logo_png,logo_txt_png,nut_png,result_retry_btn_png,result_share_btn_png,right_btn_png,smal_cafe_png,small_cup_complete0_png,small_cup_complete1_png,small_cup_geting_png,sugar_png,bg_png,cafe_bg_png,xxx_png,begin_bg_png,result_bg_png,dle_eff_mp3,input_cafe_mp3,oncomplete_mp3,onpackage_eff_mp3,add_food_eff_mp3,begin_cd_mp3,order_bg_png,qr_png",
+			"name": "game"
+		}
+	],
+	"resources": [
+		{
+			"name": "loading_bg_png",
+			"type": "image",
+			"url": "assets/bg/loading_bg.png"
+		},
+		{
+			"name": "loading_logo_png",
+			"type": "image",
+			"url": "assets/game/loading_logo.png"
+		},
+		{
+			"name": "big_cafe_png",
+			"type": "image",
+			"url": "assets/game/big_cafe.png"
+		},
+		{
+			"name": "big_cup_complete0_png",
+			"type": "image",
+			"url": "assets/game/big_cup_complete0.png"
+		},
+		{
+			"name": "big_cup_complete1_png",
+			"type": "image",
+			"url": "assets/game/big_cup_complete1.png"
+		},
+		{
+			"name": "big_cup_geting_png",
+			"type": "image",
+			"url": "assets/game/big_cup_geting.png"
+		},
+		{
+			"name": "bottle_png",
+			"type": "image",
+			"url": "assets/game/bottle.png"
+		},
+		{
+			"name": "brioche_png",
+			"type": "image",
+			"url": "assets/game/brioche.png"
+		},
+		{
+			"name": "cafe_whatering_png",
+			"type": "image",
+			"url": "assets/game/cafe_whatering.png"
+		},
+		{
+			"name": "chestnut_png",
+			"type": "image",
+			"url": "assets/game/chestnut.png"
+		},
+		{
+			"name": "fragrans_png",
+			"type": "image",
+			"url": "assets/game/fragrans.png"
+		},
+		{
+			"name": "game_bg01_png",
+			"type": "image",
+			"url": "assets/game/game_bg01.png"
+		},
+		{
+			"name": "game_bg2_png",
+			"type": "image",
+			"url": "assets/game/game_bg2.png"
+		},
+		{
+			"name": "game_cafeing_bg_png",
+			"type": "image",
+			"url": "assets/game/game_cafeing_bg.png"
+		},
+		{
+			"name": "game_cd_png",
+			"type": "image",
+			"url": "assets/game/game_cd.png"
+		},
+		{
+			"name": "game_order_bg_png",
+			"type": "image",
+			"url": "assets/game/game_order_bg.png"
+		},
+		{
+			"name": "game_top_png",
+			"type": "image",
+			"url": "assets/game/game_top.png"
+		},
+		{
+			"name": "game_txt_png",
+			"type": "image",
+			"url": "assets/game/game_txt.png"
+		},
+		{
+			"name": "icon_cafe_input_png",
+			"type": "image",
+			"url": "assets/game/icon_cafe_input.png"
+		},
+		{
+			"name": "icon_del_png",
+			"type": "image",
+			"url": "assets/game/icon_del.png"
+		},
+		{
+			"name": "icon_input_png",
+			"type": "image",
+			"url": "assets/game/icon_input.png"
+		},
+		{
+			"name": "icon66_noinput_png",
+			"type": "image",
+			"url": "assets/game/icon66_noinput.png"
+		},
+		{
+			"name": "left_btn_png",
+			"type": "image",
+			"url": "assets/game/left_btn.png"
+		},
+		{
+			"name": "logo_png",
+			"type": "image",
+			"url": "assets/game/logo.png"
+		},
+		{
+			"name": "logo_txt_png",
+			"type": "image",
+			"url": "assets/game/logo_txt.png"
+		},
+		{
+			"name": "nut_png",
+			"type": "image",
+			"url": "assets/game/nut.png"
+		},
+		{
+			"name": "result_retry_btn_png",
+			"type": "image",
+			"url": "assets/game/result_retry_btn.png"
+		},
+		{
+			"name": "result_share_btn_png",
+			"type": "image",
+			"url": "assets/game/result_share_btn.png"
+		},
+		{
+			"name": "right_btn_png",
+			"type": "image",
+			"url": "assets/game/right_btn.png"
+		},
+		{
+			"name": "smal_cafe_png",
+			"type": "image",
+			"url": "assets/game/smal_cafe.png"
+		},
+		{
+			"name": "small_cup_complete0_png",
+			"type": "image",
+			"url": "assets/game/small_cup_complete0.png"
+		},
+		{
+			"name": "small_cup_complete1_png",
+			"type": "image",
+			"url": "assets/game/small_cup_complete1.png"
+		},
+		{
+			"name": "small_cup_geting_png",
+			"type": "image",
+			"url": "assets/game/small_cup_geting.png"
+		},
+		{
+			"name": "sugar_png",
+			"type": "image",
+			"url": "assets/game/sugar.png"
+		},
+		{
+			"name": "bg_png",
+			"type": "image",
+			"url": "assets/bg/bg.png"
+		},
+		{
+			"name": "cafe_bg_png",
+			"type": "image",
+			"url": "assets/bg/cafe_bg.png"
+		},
+		{
+			"name": "xxx_png",
+			"type": "image",
+			"url": "assets/game/xxx.png"
+		},
+		{
+			"name": "begin_bg_png",
+			"type": "image",
+			"url": "assets/bg/begin_bg.png"
+		},
+		{
+			"name": "result_bg_png",
+			"type": "image",
+			"url": "assets/bg/result_bg.png"
+		},
+		{
+			"name": "dle_eff_mp3",
+			"type": "sound",
+			"url": "assets/sound/dle_eff.mp3"
+		},
+		{
+			"name": "input_cafe_mp3",
+			"type": "sound",
+			"url": "assets/sound/input_cafe.mp3"
+		},
+		{
+			"name": "oncomplete_mp3",
+			"type": "sound",
+			"url": "assets/sound/oncomplete.mp3"
+		},
+		{
+			"name": "onpackage_eff_mp3",
+			"type": "sound",
+			"url": "assets/sound/onpackage_eff.mp3"
+		},
+		{
+			"name": "add_food_eff_mp3",
+			"type": "sound",
+			"url": "assets/sound/add_food_eff.mp3"
+		},
+		{
+			"name": "begin_cd_mp3",
+			"type": "sound",
+			"url": "assets/sound/begin_cd.mp3"
+		},
+		{
+			"name": "order_bg_png",
+			"type": "image",
+			"url": "assets/bg/order_bg.png"
+		},
+		{
+			"name": "qr_png",
+			"type": "image",
+			"url": "assets/game/qr.png"
+		},
+		{
+			"name": "figer_png",
+			"type": "image",
+			"url": "assets/game/figer.png"
+		}
+	]
+}

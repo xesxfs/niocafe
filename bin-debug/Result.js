@@ -16,6 +16,7 @@ var Result = (function (_super) {
         _this.renderTexture = new egret.RenderTexture();
         return _this;
     }
+    // public caSaveLab: eui.Label;
     Result.prototype.childrenCreated = function () {
         // App.setFont([this.timeLab, this.scoreLab]);
         this.cs = [this.c1, this.c2, this.c3, this.c4, this.c5];
@@ -27,7 +28,9 @@ var Result = (function (_super) {
         this.s.text = App.successCnt * 100 + '';
         this.totallLab.text = App.score + "";
         this.noLab.text = "NO." + (new Date()).valueOf();
-        egret.setTimeout(this.onRenderCall, this, 100);
+        window["title"] = "我在NIO House成功制作了" + App.successCnt + "中秋特饮，你呢？";
+        // egret.setTimeout(this.onRenderCall, this, 100);
+        // this.caSaveLab.visible = false;
     };
     Result.prototype.partAdded = function (partName, instance) {
         _super.prototype.partAdded.call(this, partName, instance);
@@ -40,25 +43,21 @@ var Result = (function (_super) {
         this.parent.addChild(new Game());
         this.parent.removeChild(this);
         App.reset();
+        // this.caSaveLab.visible = false;
     };
     Result.prototype.onRenderCall = function () {
         this.renderTexture.drawToTexture(this.renderGroup);
-        this.renderGroup.visible = false;
+        // this.renderGroup.visible = false;
         this.qrCode = new QRCode(this.renderTexture.toDataURL("image/png"));
         this.qrCode.setPosition(this.renderGroup.x, this.renderGroup.y, this.renderGroup.width, this.renderGroup.height);
         this.qrCode.showHtmlCode();
+        this.shareBg = new QRCode("resource/assets/bg/share_bg.png");
+        this.shareBg.setPosition(0, this.renderGroup.height - 171, this.renderGroup.width, 171);
+        this.shareBg.showHtmlCode();
     };
     Result.prototype.onShare = function () {
-        // this.renderTexture.drawToTexture(this.renderGroup);
-        // let qr = new eui.Image();
-        // qr.texture = this.renderTexture;
-        // qr.x = 10;
-        // this.addChild(qr);
-        // this.renderGroup.visible = false;
-        // this.renderTexture.saveToFile("image/png", "noicafe_order.png");
-        // var qrCode: QRCode = new QRCode(this.renderTexture.toDataURL("image/png"));
-        // qrCode.setPosition(this.renderGroup.x, this.renderGroup.y, this.renderGroup.width, this.renderGroup.height);
-        // qrCode.showHtmlCode();
+        // this.caSaveLab.visible = true;
+        this.onRenderCall();
     };
     Result.prototype.calc = function () {
         var calcFods = [0, 0, 0, 0, 0];
